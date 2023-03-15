@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/ProjetoDA.dir/main.cpp.o -o ProjetoDA 
+/usr/bin/c++ -g CMakeFiles/ProjetoDA.dir/main.cpp.o CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o -o ProjetoDA 

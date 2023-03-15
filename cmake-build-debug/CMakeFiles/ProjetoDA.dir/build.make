@@ -83,17 +83,65 @@ CMakeFiles/ProjetoDA.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetoDA.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danieldoria/Desktop/DA/ProjetoDA/main.cpp -o CMakeFiles/ProjetoDA.dir/main.cpp.s
 
+CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o: CMakeFiles/ProjetoDA.dir/flags.make
+CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o: /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/LoadFiles.cpp
+CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o: CMakeFiles/ProjetoDA.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o -MF CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o.d -o CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o -c /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/LoadFiles.cpp
+
+CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/LoadFiles.cpp > CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.i
+
+CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/LoadFiles.cpp -o CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.s
+
+CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o: CMakeFiles/ProjetoDA.dir/flags.make
+CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o: /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Station.cpp
+CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o: CMakeFiles/ProjetoDA.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o -MF CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o.d -o CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o -c /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Station.cpp
+
+CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Station.cpp > CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.i
+
+CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Station.cpp -o CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.s
+
+CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o: CMakeFiles/ProjetoDA.dir/flags.make
+CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o: /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Network.cpp
+CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o: CMakeFiles/ProjetoDA.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o -MF CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o.d -o CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o -c /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Network.cpp
+
+CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Network.cpp > CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.i
+
+CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Network.cpp -o CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.s
+
 # Object files for target ProjetoDA
 ProjetoDA_OBJECTS = \
-"CMakeFiles/ProjetoDA.dir/main.cpp.o"
+"CMakeFiles/ProjetoDA.dir/main.cpp.o" \
+"CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o" \
+"CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o" \
+"CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o"
 
 # External object files for target ProjetoDA
 ProjetoDA_EXTERNAL_OBJECTS =
 
 ProjetoDA: CMakeFiles/ProjetoDA.dir/main.cpp.o
+ProjetoDA: CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o
+ProjetoDA: CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o
+ProjetoDA: CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o
 ProjetoDA: CMakeFiles/ProjetoDA.dir/build.make
 ProjetoDA: CMakeFiles/ProjetoDA.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ProjetoDA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ProjetoDA"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProjetoDA.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

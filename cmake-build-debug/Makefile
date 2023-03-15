@@ -129,6 +129,78 @@ ProjetoDA/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/build
 .PHONY : ProjetoDA/fast
 
+Code/src/LoadFiles.o: Code/src/LoadFiles.cpp.o
+.PHONY : Code/src/LoadFiles.o
+
+# target to build an object file
+Code/src/LoadFiles.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o
+.PHONY : Code/src/LoadFiles.cpp.o
+
+Code/src/LoadFiles.i: Code/src/LoadFiles.cpp.i
+.PHONY : Code/src/LoadFiles.i
+
+# target to preprocess a source file
+Code/src/LoadFiles.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.i
+.PHONY : Code/src/LoadFiles.cpp.i
+
+Code/src/LoadFiles.s: Code/src/LoadFiles.cpp.s
+.PHONY : Code/src/LoadFiles.s
+
+# target to generate assembly for a file
+Code/src/LoadFiles.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.s
+.PHONY : Code/src/LoadFiles.cpp.s
+
+Code/src/Network.o: Code/src/Network.cpp.o
+.PHONY : Code/src/Network.o
+
+# target to build an object file
+Code/src/Network.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o
+.PHONY : Code/src/Network.cpp.o
+
+Code/src/Network.i: Code/src/Network.cpp.i
+.PHONY : Code/src/Network.i
+
+# target to preprocess a source file
+Code/src/Network.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.i
+.PHONY : Code/src/Network.cpp.i
+
+Code/src/Network.s: Code/src/Network.cpp.s
+.PHONY : Code/src/Network.s
+
+# target to generate assembly for a file
+Code/src/Network.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.s
+.PHONY : Code/src/Network.cpp.s
+
+Code/src/Station.o: Code/src/Station.cpp.o
+.PHONY : Code/src/Station.o
+
+# target to build an object file
+Code/src/Station.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o
+.PHONY : Code/src/Station.cpp.o
+
+Code/src/Station.i: Code/src/Station.cpp.i
+.PHONY : Code/src/Station.i
+
+# target to preprocess a source file
+Code/src/Station.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.i
+.PHONY : Code/src/Station.cpp.i
+
+Code/src/Station.s: Code/src/Station.cpp.s
+.PHONY : Code/src/Station.s
+
+# target to generate assembly for a file
+Code/src/Station.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.s
+.PHONY : Code/src/Station.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -162,6 +234,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ProjetoDA"
+	@echo "... Code/src/LoadFiles.o"
+	@echo "... Code/src/LoadFiles.i"
+	@echo "... Code/src/LoadFiles.s"
+	@echo "... Code/src/Network.o"
+	@echo "... Code/src/Network.i"
+	@echo "... Code/src/Network.s"
+	@echo "... Code/src/Station.o"
+	@echo "... Code/src/Station.i"
+	@echo "... Code/src/Station.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -82,6 +82,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/Code/include/LoadFiles.h">
+			<Option target="ProjetoDA"/>
+		</Unit>
+		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/Code/include/Network.h">
+			<Option target="ProjetoDA"/>
+		</Unit>
+		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/Code/include/Station.h">
+			<Option target="ProjetoDA"/>
+		</Unit>
+		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/Code/src/LoadFiles.cpp">
+			<Option target="ProjetoDA"/>
+		</Unit>
+		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Network.cpp">
+			<Option target="ProjetoDA"/>
+		</Unit>
+		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/Code/src/Station.cpp">
+			<Option target="ProjetoDA"/>
+		</Unit>
 		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/main.cpp">
 			<Option target="ProjetoDA"/>
 		</Unit>
