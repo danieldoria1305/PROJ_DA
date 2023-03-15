@@ -1,0 +1,3 @@
+/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles/ProjetoDA.dir
+/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
