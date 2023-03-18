@@ -1,14 +1,16 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o"
-  "CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o.d"
-  "CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o"
-  "CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o.d"
-  "CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o"
-  "CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o.d"
-  "CMakeFiles/ProjetoDA.dir/main.cpp.o"
-  "CMakeFiles/ProjetoDA.dir/main.cpp.o.d"
-  "ProjetoDA"
+  "CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.obj"
+  "CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.obj.d"
+  "CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.obj"
+  "CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.obj.d"
+  "CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.obj"
+  "CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.obj.d"
+  "CMakeFiles/ProjetoDA.dir/main.cpp.obj"
+  "CMakeFiles/ProjetoDA.dir/main.cpp.obj.d"
+  "ProjetoDA.exe"
+  "ProjetoDA.exe.manifest"
   "ProjetoDA.pdb"
+  "libProjetoDA.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
