@@ -38,6 +38,14 @@ void LoadFiles::loadStations(string str) {
     }
 
     Station aux (result[0], result[1], result[2], result[3], result[4]);
+
+    for (auto e: getStationVector()){
+        if (aux.getMunicipality()==e.getMunicipality() && aux.getDistrict()==e.getDistrict() && aux.getName()==e.getName() && aux.getLine()==e.getLine() && aux.getTownship()==e.getTownship()){
+            return;
+        }
+    }
+
+
     stations.push_back(aux);
 }
 
@@ -81,6 +89,13 @@ void LoadFiles::loadNetwork(string str) {
 
 
     Network aux (result[0], result[1], stoi(result[2]), result[3]);
+
+    for (auto e: getNetworkVector()){
+        if (aux.getCapacity()==e.getCapacity() && aux.getStationB()==e.getStationB() && aux.getStationA()==e.getStationA() && aux.getService()==e.getService()){
+            return;
+        }
+    }
+
     networks.push_back(aux);
 }
 
