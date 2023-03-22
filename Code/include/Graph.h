@@ -17,9 +17,6 @@
 #include "Network.h"
 
 
-
-
-
 class Graph {
 
     struct Edge{
@@ -35,6 +32,7 @@ class Graph {
     };
 
     int n; // graph size
+    bool hasDir;
 
 public:
     Graph();

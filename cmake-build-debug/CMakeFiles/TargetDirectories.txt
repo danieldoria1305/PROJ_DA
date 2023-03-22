@@ -1,3 +1,0 @@
-C:/Users/gonca/Desktop/faculdade/2 ano 2 semestre/DA/ProjetoDA/cmake-build-debug/CMakeFiles/ProjetoDA.dir
-C:/Users/gonca/Desktop/faculdade/2 ano 2 semestre/DA/ProjetoDA/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/gonca/Desktop/faculdade/2 ano 2 semestre/DA/ProjetoDA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
