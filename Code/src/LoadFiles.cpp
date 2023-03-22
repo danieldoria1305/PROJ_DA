@@ -5,7 +5,7 @@
 #include "../include/LoadFiles.h"
 
 void LoadFiles::readStations (){
-    string stationsFilePath = "dataset/stations.csv";
+    string stationsFilePath = "../Code/dataset/stations.csv";
     fstream stationsFile;
     stationsFile.open(stationsFilePath);
     int jump =0;
@@ -54,7 +54,7 @@ vector<Station> LoadFiles::getStationVector() {
 }
 
 void LoadFiles::readNetwork() {
-    string networkFilePath = "dataset/network.csv";
+    string networkFilePath = "../Code/dataset/network.csv";
     fstream networkFile;
     networkFile.open(networkFilePath);
     int jump =0;
