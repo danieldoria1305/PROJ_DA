@@ -10,6 +10,7 @@ Station::Station(string name, string district, string municipality, string towns
     municipality_=municipality;
     township_=township;
     line_=line;
+    visited=false;
 }
 
 string Station::getName() const {
@@ -30,4 +31,12 @@ string Station::getTownship() const {
 
 string Station::getLine() const {
     return line_;
+}
+
+void Station::setVisited(bool _bool) {
+    this->visited=_bool;
+}
+
+bool Station::getVisited() {
+    return this->visited;
 }

@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\ProjetoDA"
+CMAKE_SOURCE_DIR = "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\trabalho 1\ProjetoDA"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\ProjetoDA\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\trabalho 1\ProjetoDA\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\ProjetoDA\cmake-build-debug\CMakeFiles" "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\ProjetoDA\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\trabalho 1\ProjetoDA\cmake-build-debug\CMakeFiles" "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\trabalho 1\ProjetoDA\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\ProjetoDA\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\gonca\Desktop\faculdade\2 ano 2 semestre\DA\trabalho 1\ProjetoDA\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -127,6 +127,30 @@ ProjetoDA: cmake_check_build_system
 ProjetoDA/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProjetoDA.dir\build.make CMakeFiles/ProjetoDA.dir/build
 .PHONY : ProjetoDA/fast
+
+Code/src/Graph.obj: Code/src/Graph.cpp.obj
+.PHONY : Code/src/Graph.obj
+
+# target to build an object file
+Code/src/Graph.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProjetoDA.dir\build.make CMakeFiles/ProjetoDA.dir/Code/src/Graph.cpp.obj
+.PHONY : Code/src/Graph.cpp.obj
+
+Code/src/Graph.i: Code/src/Graph.cpp.i
+.PHONY : Code/src/Graph.i
+
+# target to preprocess a source file
+Code/src/Graph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProjetoDA.dir\build.make CMakeFiles/ProjetoDA.dir/Code/src/Graph.cpp.i
+.PHONY : Code/src/Graph.cpp.i
+
+Code/src/Graph.s: Code/src/Graph.cpp.s
+.PHONY : Code/src/Graph.s
+
+# target to generate assembly for a file
+Code/src/Graph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProjetoDA.dir\build.make CMakeFiles/ProjetoDA.dir/Code/src/Graph.cpp.s
+.PHONY : Code/src/Graph.cpp.s
 
 Code/src/LoadFiles.obj: Code/src/LoadFiles.cpp.obj
 .PHONY : Code/src/LoadFiles.obj
@@ -200,6 +224,30 @@ Code/src/Station.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProjetoDA.dir\build.make CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.s
 .PHONY : Code/src/Station.cpp.s
 
+Code/src/VertexEdge.obj: Code/src/VertexEdge.cpp.obj
+.PHONY : Code/src/VertexEdge.obj
+
+# target to build an object file
+Code/src/VertexEdge.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProjetoDA.dir\build.make CMakeFiles/ProjetoDA.dir/Code/src/VertexEdge.cpp.obj
+.PHONY : Code/src/VertexEdge.cpp.obj
+
+Code/src/VertexEdge.i: Code/src/VertexEdge.cpp.i
+.PHONY : Code/src/VertexEdge.i
+
+# target to preprocess a source file
+Code/src/VertexEdge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProjetoDA.dir\build.make CMakeFiles/ProjetoDA.dir/Code/src/VertexEdge.cpp.i
+.PHONY : Code/src/VertexEdge.cpp.i
+
+Code/src/VertexEdge.s: Code/src/VertexEdge.cpp.s
+.PHONY : Code/src/VertexEdge.s
+
+# target to generate assembly for a file
+Code/src/VertexEdge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProjetoDA.dir\build.make CMakeFiles/ProjetoDA.dir/Code/src/VertexEdge.cpp.s
+.PHONY : Code/src/VertexEdge.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -233,6 +281,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ProjetoDA
+	@echo ... Code/src/Graph.obj
+	@echo ... Code/src/Graph.i
+	@echo ... Code/src/Graph.s
 	@echo ... Code/src/LoadFiles.obj
 	@echo ... Code/src/LoadFiles.i
 	@echo ... Code/src/LoadFiles.s
@@ -242,6 +293,9 @@ help:
 	@echo ... Code/src/Station.obj
 	@echo ... Code/src/Station.i
 	@echo ... Code/src/Station.s
+	@echo ... Code/src/VertexEdge.obj
+	@echo ... Code/src/VertexEdge.i
+	@echo ... Code/src/VertexEdge.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

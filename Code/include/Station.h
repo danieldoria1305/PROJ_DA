@@ -18,6 +18,8 @@ public:
     string getMunicipality() const; // Returns the municipality of the station
     string getTownship() const; // Returns the township of the station
     string getLine() const; // Returns the line of the station
+    void setVisited(bool _bool) ;
+    bool getVisited();
 
 private:
     string name_; // Name of the station
@@ -25,6 +27,7 @@ private:
     string municipality_; // Municipality of the station
     string township_; // Township of the station
     string line_; // Line of the station
+    bool visited;
 };
 
 

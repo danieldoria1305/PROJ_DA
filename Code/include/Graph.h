@@ -12,46 +12,54 @@
 #include <algorithm>
 #include <list>
 #include "VertexEdge.h"
-#include "LoadFiles.h"
 #include "Station.h"
 #include "Network.h"
 
 
 class Graph {
 
-    struct Edge{
-        string connectedStation;
-        int capacity;
-        string service;
-    };
-
-    struct Node{
-        string name;
-        list<Graph::Edge> adj;
-        bool visited = false;
-    };
-
     int n; // graph size
-    bool hasDir;
 
 public:
+    // ~Graph();
+
     Graph();
 
-    void addEdge (string name, string connectedStation, int capacity, string service);
+    bool addVertex(const string id);
 
-    void setVisitedFalse();
+    static Vertex *findVertex(const string &id) const;
+
+    int getNumVertex() const;
+
+    std::vector<Vertex *> getVertexSet() const;
+
+    // void setVisitedFalse();
 
     int getTotalStationCapacity(const string name);
 
-    int getNumberofTrainsService(const string service);
+    int getNumberofTrainsService(enum service service);
 
-    int totalOfTrainsInNetwork ();
+    string dfs_totalOfTrainsInNetwork ();
+
+    vector<string> DFS (const string &source, int &capacity);
 
 
-    void addNode(string name);
+
+protected:
+    std::vector<Vertex *> vertexSet;    // vertex set
+
+    double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
+    int **pathMatrix = nullptr;   // path matrix for Floyd-Warshall
+
+    /*
+     * Finds the index of the vertex with a given content.
+     */
+    int findVertexIdx(const int &id) const;
 
 };
 
+void deleteMatrix(int **m, int n);
+void deleteMatrix(double **m, int n);
 
 
 

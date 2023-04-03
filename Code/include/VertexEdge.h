@@ -12,71 +12,80 @@
 #include <limits>
 #include <algorithm>
 
+using namespace std;
+
 class Edge;
 
 #define INF std::numeric_limits<double>::max()
+
+
 
 /************************* Vertex  **************************/
 
 class Vertex {
 public:
-    Vertex(int id);
-    bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
 
-    int getId() const;
+
+
+    Vertex(string id);
+    // bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
+
+    string getId() const;
     std::vector<Edge *> getAdj() const;
+    void addAdj(Edge *Edge);
     bool isVisited() const;
-    bool isProcessing() const;
+    // bool isProcessing() const;
     unsigned int getIndegree() const;
-    double getDist() const;
-    Edge *getPath() const;
+    // double getDist() const;
+    // Edge *getPath() const;
     std::vector<Edge *> getIncoming() const;
 
-    void setId(int info);
+    void setId(string info);
     void setVisited(bool visited);
-    void setProcesssing(bool processing);
+    // void setProcesssing(bool processing);
     void setIndegree(unsigned int indegree);
-    void setDist(double dist);
-    void setPath(Edge *path);
-    Edge * addEdge(Vertex *dest, double w);
-    bool removeEdge(int destID);
+    // void setDist(double dist);
+    // void setPath(Edge *path);
+    Edge * addEdge(Vertex *dest, int capacity, string service);
+    bool removeEdge(string destID);
 
     // friend class MutablePriorityQueue<Vertex>;
 protected:
-    int id;                // identifier
+    string id;                // identifier
     std::vector<Edge *> adj;  // outgoing edges
 
     // auxiliary fields
     bool visited = false; // used by DFS, BFS, Prim ...
-    bool processing = false; // used by isDAG (in addition to the visited attribute)
+    // bool processing = false; // used by isDAG (in addition to the visited attribute)
     unsigned int indegree; // used by topsort
-    double dist = 0;
-    Edge *path = nullptr;
+    // double dist = 0;
+    // Edge *path = nullptr;
 
     std::vector<Edge *> incoming; // incoming edges
 
-    int queueIndex = 0; 		// required by MutablePriorityQueue and UFDS
+    // int queueIndex = 0; 		// required by MutablePriorityQueue and UFDS
 };
 
 /********************** Edge  ****************************/
 
 class Edge {
 public:
-    Edge(Vertex *orig, Vertex *dest, double w);
+    Edge(Vertex *orig, Vertex *dest, int capacity, string service);
 
     Vertex * getDest() const;
-    double getWeight() const;
+    int getCapacity() const;
     bool isSelected() const;
     Vertex * getOrig() const;
     Edge *getReverse() const;
-    double getFlow() const;
+    int getFlow() const;
 
     void setSelected(bool selected);
     void setReverse(Edge *reverse);
-    void setFlow(double flow);
+    void setFlow(int flow);
 protected:
     Vertex * dest; // destination vertex
-    double weight; // edge weight, can also be used for capacity
+    int capacity; // edge weight, can also be used for capacity
+    string service;
 
     // auxiliary fields
     bool selected = false;
@@ -85,7 +94,7 @@ protected:
     Vertex *orig;
     Edge *reverse = nullptr;
 
-    double flow; // for flow-related problems
+    int flow; // for flow-related problems
 };
 
 

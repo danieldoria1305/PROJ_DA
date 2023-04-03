@@ -16,15 +16,17 @@
 #include <unordered_set>
 #include "Station.h"
 #include "Network.h"
+#include "Graph.h"
+#include "VertexEdge.h"
 
 using namespace std;
 
 class LoadFiles{
 
 public:
-    void readStations(); // read the entire stations document
+    Graph readStations(); // read the entire stations document
 
-    void loadStations(string str); // given a line read in readStations, update the Station vector with a new station
+    void loadStations(string str, Graph &StationsGraph); // given a line read in readStations, update the Station vector with a new station
 
     vector <Station> getStationVector(); // gets the vector created with all the stations
 

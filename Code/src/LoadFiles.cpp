@@ -3,17 +3,20 @@
 //
 
 #include "../include/LoadFiles.h"
+#include "../include/VertexEdge.h"
+#include "../include/Graph.h"
+Graph StationsGraph;
 
-void LoadFiles::readStations (){
+
+Graph LoadFiles::readStations (){
     string stationsFilePath = "../Code/dataset/stations.csv";
     fstream stationsFile;
-    stationsFile.open(stationsFilePath);
     int jump =0;
+    stationsFile.open(stationsFilePath);
 
     if (stationsFile.fail()) {
         cerr << "Unable to open " << stationsFilePath << endl;
     }
-
 
 
     while (stationsFile.peek() != EOF) {
@@ -21,15 +24,17 @@ void LoadFiles::readStations (){
         vector<string> strings;
         getline(stationsFile, line);
         if (jump==1) {
-            loadStations(line);
+            loadStations(line, StationsGraph);
         }
         jump=1;
     }
 
     stationsFile.close();
+
+    return StationsGraph;
 }
 
-void LoadFiles::loadStations(string str) {
+void LoadFiles::loadStations(string str, Graph &StationsGraph) {
     vector<string> result;
     stringstream ss(str);
     string item;
@@ -45,7 +50,7 @@ void LoadFiles::loadStations(string str) {
         }
     }
 
-
+    StationsGraph.addVertex(aux.getName());
     stations.push_back(aux);
 }
 
@@ -79,7 +84,7 @@ void LoadFiles::readNetwork() {
 
 }
 
-void LoadFiles::loadNetwork(string str) {
+void LoadFiles::loadNetwork(string str, Graph &Stationsgraph) {
     vector<string> result;
     stringstream ss(str);
     string item;
@@ -88,7 +93,14 @@ void LoadFiles::loadNetwork(string str) {
     }
 
 
+
     Network aux (result[0], result[1], stoi(result[2]), result[3]);
+
+    Vertex* a(aux.getStationA());
+    Vertex* b(aux.getStationB());
+
+
+    Edge edge (a, b, stoi(result[2]), result[3]);
 
     for (auto e: getNetworkVector()){
         if (aux.getCapacity()==e.getCapacity() && aux.getStationB()==e.getStationB() && aux.getStationA()==e.getStationA() && aux.getService()==e.getService()){
@@ -96,6 +108,7 @@ void LoadFiles::loadNetwork(string str) {
         }
     }
 
+    Graph::findVertex(aux.getStationA())->addAdj(aux);
     networks.push_back(aux);
 }
 
