@@ -1,3 +1,1 @@
-"C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\ProjetoDA.dir/objects.a
-C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\ar.exe qc CMakeFiles\ProjetoDA.dir/objects.a @CMakeFiles\ProjetoDA.dir\objects1.rsp
-C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\ProjetoDA.dir/objects.a -Wl,--no-whole-archive -o ProjetoDA.exe -Wl,--out-implib,libProjetoDA.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ProjetoDA.dir\linklibs.rsp
+/usr/bin/c++ -g CMakeFiles/ProjetoDA.dir/main.cpp.o CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.o CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.o CMakeFiles/ProjetoDA.dir/Code/src/Graph.cpp.o CMakeFiles/ProjetoDA.dir/Code/src/VertexEdge.cpp.o CMakeFiles/ProjetoDA.dir/Code/src/App.cpp.o -o ProjetoDA 

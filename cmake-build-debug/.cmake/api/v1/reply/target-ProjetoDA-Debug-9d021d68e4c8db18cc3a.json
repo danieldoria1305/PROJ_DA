@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "ProjetoDA.exe"
-		},
-		{
-			"path" : "ProjetoDA.pdb"
+			"path" : "ProjetoDA"
 		}
 	],
 	"backtrace" : 1,
@@ -57,7 +54,8 @@
 				4,
 				6,
 				7,
-				8
+				8,
+				9
 			]
 		}
 	],
@@ -73,16 +71,12 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "ProjetoDA",
-	"nameOnDisk" : "ProjetoDA.exe",
+	"nameOnDisk" : "ProjetoDA",
 	"paths" : 
 	{
 		"build" : ".",
@@ -99,7 +93,8 @@
 				4,
 				6,
 				7,
-				8
+				8,
+				9
 			]
 		},
 		{
@@ -163,6 +158,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "Code/src/VertexEdge.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Code/src/App.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
