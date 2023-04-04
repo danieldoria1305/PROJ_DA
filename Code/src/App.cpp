@@ -7,7 +7,7 @@
 using namespace std;
 
 void App::start() {
-    loadfiles.readStations();
+    loadFiles.readStations();
     loadFiles.readNetwork();
     while(true) {
         if (!printUserMenu()) {
