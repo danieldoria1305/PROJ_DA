@@ -8,6 +8,7 @@ LoadFiles lf2;
 Graph g = lf2.getGraph();
 
 
+
 void testAndVisit(std::queue< Vertex*> &q, Edge *e, Vertex *w, double residual) {
     if (! w->isVisited() && residual > 0) {
         w->setVisited(true);

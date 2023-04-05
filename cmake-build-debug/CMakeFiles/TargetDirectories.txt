@@ -1,3 +1,3 @@
-/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles/ProjetoDA.dir
-/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/danieldoria/Desktop/DA/ProjetoDA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/ricar/Dropbox/FEUP - LEIC/2 ano/DA/ProjetoDA/cmake-build-debug/CMakeFiles/ProjetoDA.dir
+C:/Users/ricar/Dropbox/FEUP - LEIC/2 ano/DA/ProjetoDA/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ricar/Dropbox/FEUP - LEIC/2 ano/DA/ProjetoDA/cmake-build-debug/CMakeFiles/rebuild_cache.dir

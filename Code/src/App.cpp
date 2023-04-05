@@ -4,12 +4,20 @@
 
 #include "../include/App.h"
 #include "../include/Functions.h"
+#include <iostream>
+#include <string>
+#include <locale>
+#include <codecvt>
 
 using namespace std;
 
 void App::start() {
     loadFiles.readStations();
     loadFiles.readNetwork();
+    loadFiles.createAdjs();
+
+    Graph g = loadFiles.getGraph();
+
     while(true) {
         if (!printUserMenu()) {
             break;
@@ -82,6 +90,8 @@ bool App::printUserMenu() {
 
 void App::printMaxTrainsBetweenTwoStations() {
     string station1, station2;
+    string a = "Porto Campanhã";
+    string b = "Lisboa Oriente";
     cout <<  "╒═════════════════════════════════════════════╕\n"
              "│               1º Station Name               │\n"
              "╞═════════════════════════════════════════════╡\n"
@@ -91,7 +101,8 @@ void App::printMaxTrainsBetweenTwoStations() {
              "│  Return                                [1]  │\n"
              "╘═════════════════════════════════════════════╛\n"
              "                                               \n";
-    cin >> station1;
+    getline(cin,station1);
+
     if (station1 == "1") return;
     cout <<  "╒═════════════════════════════════════════════╕\n"
              "│               2º Station Name               │\n"
@@ -102,13 +113,15 @@ void App::printMaxTrainsBetweenTwoStations() {
              "│  Return                                [1]  │\n"
              "╘═════════════════════════════════════════════╛\n"
              "                                               \n";
-    cin >> station2;
-    cin.ignore();
+
+    getline(cin,station2);
+
     if (station2 == "1") return;
+
     cout << "╒═════════════════════════════════════════════╕\n"
             "     The number of trains that can travel      \n";
     cout << "  simultaneously between " << station1
-         << "  and " << station2 << " is: " << maxNumTrainsTwoStations(station1, station2) << "\n"; // Aqui vai ser chamado o metodo que calcula o numero de comboios que podem viajar entre duas estações
+         << " and " << station2 << " is: " << maxNumTrainsTwoStations(station1, station2) << "\n"; // Aqui vai ser chamado o metodo que calcula o numero de comboios que podem viajar entre duas estações
     cout << "╞═════════════════════════════════════════════╡\n"
             "│  Press enter to return                      │\n"
             "╘═════════════════════════════════════════════╛\n"
