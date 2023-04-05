@@ -191,7 +191,16 @@ CMakeFiles/ProjetoDA.dir/Code/src/App.cpp.obj: ../Code/src/App.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc \
   ../Code/include/VertexEdge.h \
-  ../Code/include/Functions.h
+  ../Code/include/Functions.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ctime \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_conv.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt
 
 CMakeFiles/ProjetoDA.dir/Code/src/Functions.cpp.obj: ../Code/src/Functions.cpp \
   ../Code/include/Functions.h \
@@ -1423,6 +1432,8 @@ C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/move.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt:
+
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/type_traits:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator_base_types.h:
@@ -1446,6 +1457,8 @@ C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/x86_64-w64-mingw32/include
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwchar:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.tcc:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/x86_64-w64-mingw32/include/stdio.h:
 
@@ -1587,6 +1600,8 @@ C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/x86_64-w64-mingw32/include
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hash_bytes.h:
 
+C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h:
+
 ../Code/include/Functions.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits:
@@ -1679,6 +1694,8 @@ C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map:
 
+C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable.h:
@@ -1740,6 +1757,16 @@ C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32
 C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc:
 
 ../Code/include/VertexEdge.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ctime:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_conv.h:
+
+C:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h:
 
 ../Code/src/Graph.cpp:
 
