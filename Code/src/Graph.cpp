@@ -27,7 +27,9 @@ bool Graph::addVertex(const string id) {
     return true;
 }
 
-Vertex *Graph::findVertex(const string &id) const {
+vector<Vertex*> Graph::vertexSet;
+
+Vertex *Graph::findVertex(const string &id) {
     for (auto v : vertexSet)
         if (v->getId() == id)
             return v;
@@ -46,7 +48,7 @@ int Graph::getTotalStationCapacity(const string name) {
     return 0;
 }
 
-int Graph::getNumberofTrainsService(enum service service) {
+int Graph::getNumberofTrainsService(string service) {
     return 0;
 }
 
@@ -72,8 +74,11 @@ vector<string> Graph::DFS(const string &source, int &capacity){
         res.push_back(source);
         v1->setVisited(true);
 
-        cout << v1->getAdj() << "\n";
-        for (auto &it : v1->getAdj()){
+
+        cout << v1->getId() << "FIRST ID \n ";
+
+        for (auto it : v1->getAdj()){
+            cout << v1->getId() << "IM HERE" <<  "\n";
             capacity += it->getCapacity();
             a = DFS (it->getDest()->getId(), capacity);
             res.insert(res.end(), a.begin(), a.end());

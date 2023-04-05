@@ -42,11 +42,11 @@ void Edge::setReverse(Edge *reverse) {
     this->reverse=reverse;
 }
 
-void Edge::setFlow(int flow) {
+void Edge::setFlow(double flow) {
     this->flow=flow;
 }
 
-int Edge::getFlow() const {
+double Edge::getFlow() const {
     return this->flow;
 }
 
@@ -70,9 +70,7 @@ unsigned int Vertex::getIndegree() const {
     return this->indegree;
 }
 
-std::vector<Edge *> Vertex::getIncoming() const {
-    return this->incoming;
-}
+
 
 void Vertex::setId(string info) {
     this->id=info;
@@ -86,14 +84,21 @@ void Vertex::setIndegree(unsigned int indegree) {
     this->indegree=indegree;
 }
 
-Edge *Vertex::addEdge(Vertex *dest, int capacity, string service) {
-    auto newEdge = new Edge(this, dest, capacity, service);
+Edge * Vertex::addEdge(Vertex *orig, Vertex *dest, int capacity, string service) {
+    auto newEdge = new Edge(orig, dest, capacity, service);
     adj.push_back(newEdge);
-    dest->incoming.push_back(newEdge);
     return newEdge;
 }
 
-bool Vertex::removeEdge(string destID) {
+void Vertex::setPath(Edge *path) {
+    this->path=path;
+}
+
+Edge *Vertex::getPath() const {
+    return this->path;
+}
+
+/*bool Vertex::removeEdge(string destID) {
     bool removedEdge = false;
     auto it = adj.begin();
     while (it != adj.end()) {
@@ -119,8 +124,5 @@ bool Vertex::removeEdge(string destID) {
         }
     }
     return removedEdge;
-}
+}*/
 
-void Vertex::addAdj(Edge *Edge) {
-    adj.push_back(Edge);
-}

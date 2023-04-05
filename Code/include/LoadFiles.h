@@ -24,17 +24,21 @@ using namespace std;
 class LoadFiles{
 
 public:
-    Graph readStations(); // read the entire stations document
+    void readStations(); // read the entire stations document
 
-    void loadStations(string str, Graph &StationsGraph); // given a line read in readStations, update the Station vector with a new station
+    void loadStations(string str); // given a line read in readStations, update the Station vector with a new station
 
     vector <Station> getStationVector(); // gets the vector created with all the stations
 
     void readNetwork(); // read the entire Network document
 
-    void loadNetwork (string str, Graph &StattionsGraph); // given a line read in readNetwork, update the Network vector with a new Network
+    void loadNetwork (string str); // given a line read in readNetwork, update the Network vector with a new Network
 
     vector<Network> getNetworkVector(); // gets the vector created with all the Network
+
+    Graph getGraph();
+
+    void createAdjs();
 
 private:
     vector<Station> stations; // vector with all stations

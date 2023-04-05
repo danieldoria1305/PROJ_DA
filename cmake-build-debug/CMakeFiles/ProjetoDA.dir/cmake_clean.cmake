@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ProjetoDA.dir/Code/src/App.cpp.obj"
   "CMakeFiles/ProjetoDA.dir/Code/src/App.cpp.obj.d"
+  "CMakeFiles/ProjetoDA.dir/Code/src/Functions.cpp.obj"
+  "CMakeFiles/ProjetoDA.dir/Code/src/Functions.cpp.obj.d"
   "CMakeFiles/ProjetoDA.dir/Code/src/Graph.cpp.obj"
   "CMakeFiles/ProjetoDA.dir/Code/src/Graph.cpp.obj.d"
   "CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.obj"

@@ -43,7 +43,7 @@ bool App::printUserMenu() {
     string operation;
     cin >> operation;
     cin.ignore();
-    try {
+   /* try {
         switch (stoi(operation)) { // Todos os nomes destas funções sao temporarios
             case 11: {
                 printMaxTrainsBetweenTwoStation();
@@ -75,7 +75,7 @@ bool App::printUserMenu() {
     }catch(std::invalid_argument){
         cout << "Invalid Operation..." << endl;
     }
+    */
     return true;
 }
 
-}

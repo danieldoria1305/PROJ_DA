@@ -32,21 +32,20 @@ public:
 
     string getId() const;
     std::vector<Edge *> getAdj() const;
-    void addAdj(Edge *Edge);
     bool isVisited() const;
     // bool isProcessing() const;
     unsigned int getIndegree() const;
     // double getDist() const;
-    // Edge *getPath() const;
-    std::vector<Edge *> getIncoming() const;
+    Edge *getPath() const;
+
 
     void setId(string info);
     void setVisited(bool visited);
     // void setProcesssing(bool processing);
     void setIndegree(unsigned int indegree);
     // void setDist(double dist);
-    // void setPath(Edge *path);
-    Edge * addEdge(Vertex *dest, int capacity, string service);
+    void setPath(Edge *path);
+    Edge * addEdge(Vertex* orig, Vertex *dest, int capacity, string service);
     bool removeEdge(string destID);
 
     // friend class MutablePriorityQueue<Vertex>;
@@ -59,9 +58,9 @@ protected:
     // bool processing = false; // used by isDAG (in addition to the visited attribute)
     unsigned int indegree; // used by topsort
     // double dist = 0;
-    // Edge *path = nullptr;
+    Edge *path = nullptr;
 
-    std::vector<Edge *> incoming; // incoming edges
+    // std::vector<Edge *> incoming; // incoming edges
 
     // int queueIndex = 0; 		// required by MutablePriorityQueue and UFDS
 };
@@ -77,11 +76,11 @@ public:
     bool isSelected() const;
     Vertex * getOrig() const;
     Edge *getReverse() const;
-    int getFlow() const;
+    double getFlow() const;
 
     void setSelected(bool selected);
     void setReverse(Edge *reverse);
-    void setFlow(int flow);
+    void setFlow(double flow);
 protected:
     Vertex * dest; // destination vertex
     int capacity; // edge weight, can also be used for capacity
@@ -94,7 +93,7 @@ protected:
     Vertex *orig;
     Edge *reverse = nullptr;
 
-    int flow; // for flow-related problems
+    double flow; // for flow-related problems
 };
 
 

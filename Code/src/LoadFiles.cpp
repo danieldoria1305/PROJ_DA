@@ -7,8 +7,9 @@
 #include "../include/Graph.h"
 Graph StationsGraph;
 
+vector <Station> stations;
 
-Graph LoadFiles::readStations (){
+void LoadFiles::readStations (){
     string stationsFilePath = "../Code/dataset/stations.csv";
     fstream stationsFile;
     int jump =0;
@@ -19,22 +20,22 @@ Graph LoadFiles::readStations (){
     }
 
 
+
     while (stationsFile.peek() != EOF) {
         string line;
         vector<string> strings;
         getline(stationsFile, line);
         if (jump==1) {
-            loadStations(line, StationsGraph);
+            loadStations(line);
         }
         jump=1;
     }
 
     stationsFile.close();
 
-    return StationsGraph;
 }
 
-void LoadFiles::loadStations(string str, Graph &StationsGraph) {
+void LoadFiles::loadStations(string str) {
     vector<string> result;
     stringstream ss(str);
     string item;
@@ -49,7 +50,6 @@ void LoadFiles::loadStations(string str, Graph &StationsGraph) {
             return;
         }
     }
-
     StationsGraph.addVertex(aux.getName());
     stations.push_back(aux);
 }
@@ -68,8 +68,6 @@ void LoadFiles::readNetwork() {
         cerr << "Unable to open " << networkFilePath << endl;
     }
 
-
-
     while (networkFile.peek() != EOF) {
         string line;
         vector<string> strings;
@@ -79,12 +77,11 @@ void LoadFiles::readNetwork() {
         }
         jump=1;
     }
-
     networkFile.close();
 
 }
 
-void LoadFiles::loadNetwork(string str, Graph &Stationsgraph) {
+void LoadFiles::loadNetwork(string str) {
     vector<string> result;
     stringstream ss(str);
     string item;
@@ -92,15 +89,10 @@ void LoadFiles::loadNetwork(string str, Graph &Stationsgraph) {
         result.push_back(item);
     }
 
-
-
     Network aux (result[0], result[1], stoi(result[2]), result[3]);
 
-    Vertex* a(aux.getStationA());
-    Vertex* b(aux.getStationB());
-
-
-    Edge edge (a, b, stoi(result[2]), result[3]);
+    Vertex a(aux.getStationA());
+    Vertex b(aux.getStationB());
 
     for (auto e: getNetworkVector()){
         if (aux.getCapacity()==e.getCapacity() && aux.getStationB()==e.getStationB() && aux.getStationA()==e.getStationA() && aux.getService()==e.getService()){
@@ -108,12 +100,23 @@ void LoadFiles::loadNetwork(string str, Graph &Stationsgraph) {
         }
     }
 
-    Graph::findVertex(aux.getStationA())->addAdj(aux);
     networks.push_back(aux);
+}
+
+
+void LoadFiles::createAdjs(){
+    vector<Network> networks = getNetworkVector();
+
+    for (auto a:networks){
+        StationsGraph.findVertex(a.getStationA())->addEdge(StationsGraph.findVertex(a.getStationA()), StationsGraph.findVertex(a.getStationB()), a.getCapacity(), a.getService());
+        StationsGraph.findVertex(a.getStationB())->addEdge(StationsGraph.findVertex(a.getStationB()), StationsGraph.findVertex(a.getStationA()), a.getCapacity(), a.getService());
+    }
 }
 
 vector<Network> LoadFiles::getNetworkVector() {
     return networks;
 }
 
-
+Graph LoadFiles::getGraph() {
+    return StationsGraph;
+}

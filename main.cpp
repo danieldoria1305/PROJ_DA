@@ -5,27 +5,25 @@
 #include "Code/include/Graph.h"
 #include "Code/include/VertexEdge.h"
 
+#include "code/include/Functions.h"
+
 using namespace std;
 
 
 int main() {
-
-
     LoadFiles lf;
+    lf.readStations();
+    lf.readNetwork();
+    lf.createAdjs();
+    Graph g = lf.getGraph();
+
+    string a = "Porto Campanhã";
+    string b = "Lisboa Oriente";
 
 
+    int teste = maxNumTrainsTwoStations(a, b);
 
-
-    Graph g = lf.readStations();
-
-
-
-
-    string test = g.dfs_totalOfTrainsInNetwork();
-
-    std::cout << test << "\n THis is the line \n";
-
-    std::cout << "\nHello, World!" << std::endl;
+    cout << teste;
     return 0;
 }
 

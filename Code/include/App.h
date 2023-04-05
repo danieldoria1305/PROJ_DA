@@ -11,13 +11,13 @@ class App {
 public:
     void start();
     bool printUserMenu();
-    void printMaxTrainsBetweenTwoStation();
+/*    void printMaxTrainsBetweenTwoStation();
     void printStationsMostAmountTrains();
     void printTopkMunicipalitiesDistricts();
     void printMaxTrainsArriveSimul();
     void printTrainsTravelMinimumCost();
     void printMaxTrainsReducedConnect();
-    void printPreferences();
+    void printPreferences();*/
 private:
     LoadFiles loadFiles;
     //set<string> stations_;

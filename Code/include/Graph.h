@@ -27,7 +27,9 @@ public:
 
     bool addVertex(const string id);
 
-    static Vertex *findVertex(const string &id) const;
+    static Vertex *findVertex(const string &id);
+
+
 
     int getNumVertex() const;
 
@@ -37,7 +39,7 @@ public:
 
     int getTotalStationCapacity(const string name);
 
-    int getNumberofTrainsService(enum service service);
+    int getNumberofTrainsService(string service);
 
     string dfs_totalOfTrainsInNetwork ();
 
@@ -46,7 +48,7 @@ public:
 
 
 protected:
-    std::vector<Vertex *> vertexSet;    // vertex set
+    static vector<Vertex *> vertexSet;    // vertex set
 
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
     int **pathMatrix = nullptr;   // path matrix for Floyd-Warshall
