@@ -11,8 +11,8 @@ class App {
 public:
     void start();
     bool printUserMenu();
-/*    void printMaxTrainsBetweenTwoStation();
-    void printStationsMostAmountTrains();
+    void printMaxTrainsBetweenTwoStations();
+    /*void printStationsMostAmountTrains();
     void printTopkMunicipalitiesDistricts();
     void printMaxTrainsArriveSimul();
     void printTrainsTravelMinimumCost();
@@ -21,7 +21,7 @@ public:
 private:
     LoadFiles loadFiles;
     //set<string> stations_;
-    //string type_;
+    string type_;
 };
 
 

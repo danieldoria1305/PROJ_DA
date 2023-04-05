@@ -3,6 +3,7 @@
 //
 
 #include "../include/App.h"
+#include "../include/Functions.h"
 
 using namespace std;
 
@@ -43,13 +44,13 @@ bool App::printUserMenu() {
     string operation;
     cin >> operation;
     cin.ignore();
-   /* try {
-        switch (stoi(operation)) { // Todos os nomes destas funções sao temporarios
+   try {
+       switch (stoi(operation)) { // Todos os nomes destas funções sao temporarios
             case 11: {
-                printMaxTrainsBetweenTwoStation();
+                printMaxTrainsBetweenTwoStations();
                 break;
             }
-            case 12:
+            /*case 12:
                 printStationsMostAmountTrains();
                 break;
             case 13:
@@ -66,7 +67,7 @@ bool App::printUserMenu() {
                 break;
             case 31:
                 printPreferences();
-                break;
+                break;*/
             case 41:
                 return false;
             default:
@@ -75,7 +76,43 @@ bool App::printUserMenu() {
     }catch(std::invalid_argument){
         cout << "Invalid Operation..." << endl;
     }
-    */
+
     return true;
+}
+
+void App::printMaxTrainsBetweenTwoStations() {
+    string station1, station2;
+    cout <<  "╒═════════════════════════════════════════════╕\n"
+             "│               1º Station Name               │\n"
+             "╞═════════════════════════════════════════════╡\n"
+             "│  Write the station name to see the maximum  │\n"
+             "│ number of trains                            │\n"
+             "╞═════════════════════════════════════════════╡\n"
+             "│  Return                                [1]  │\n"
+             "╘═════════════════════════════════════════════╛\n"
+             "                                               \n";
+    cin >> station1;
+    if (station1 == "1") return;
+    cout <<  "╒═════════════════════════════════════════════╕\n"
+             "│               2º Station Name               │\n"
+             "╞═════════════════════════════════════════════╡\n"
+             "│  Write the station name to see the maximum  │\n"
+             "│ number of trains                            │\n"
+             "╞═════════════════════════════════════════════╡\n"
+             "│  Return                                [1]  │\n"
+             "╘═════════════════════════════════════════════╛\n"
+             "                                               \n";
+    cin >> station2;
+    cin.ignore();
+    if (station2 == "1") return;
+    cout << "╒═════════════════════════════════════════════╕\n"
+            "     The number of trains that can travel      \n";
+    cout << "  simultaneously between " << station1
+         << "  and " << station2 << " is: " << maxNumTrainsTwoStations(station1, station2) << "\n"; // Aqui vai ser chamado o metodo que calcula o numero de comboios que podem viajar entre duas estações
+    cout << "╞═════════════════════════════════════════════╡\n"
+            "│  Press enter to return                      │\n"
+            "╘═════════════════════════════════════════════╛\n"
+            "                                               \n";
+    cin.ignore();
 }
 
