@@ -192,19 +192,17 @@ vector<pair<string, string>> maxMAxFlow() {
     vector<pair<string, string>> res;
     vector<pair<string, string>> ret;
 
-
-    for (auto a:g.getVertexSet()){
-        for (auto b:g.getVertexSet()){
-            if (a->getId()!=b->getId()) {
-                int aux = maxNumTrainsTwoStations(a->getId(), b->getId());
+    for(int i = 0; i < g.getVertexSet().size() - 1; i++){
+        for(int j = i + 1; j < g.getVertexSet().size(); j++){
+            if (g.getVertexSet()[i]->getId() != g.getVertexSet()[j]->getId()) {
+                int aux = maxNumTrainsTwoStations(g.getVertexSet()[i]->getId(), g.getVertexSet()[j]->getId());
                 if (aux >= max) {
                     max = aux;
-                    res.push_back(make_pair(a->getId(), b->getId()));
+                    res.push_back(make_pair(g.getVertexSet()[i]->getId(), g.getVertexSet()[j]->getId()));
                 }
             }
         }
     }
-
 
     for (auto c:res){
         int flag =0;

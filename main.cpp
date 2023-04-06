@@ -21,11 +21,11 @@ int main() {
     Graph g=lf.getGraph();
 
 
-
-
-    for (auto a: maxFlowDistrict()){
-        cout << a.first  << "\t" << a.second << "\n";
+    for (auto b:maxFlowMunicipality()){
+        cout << b.first << "\t" << b.second << "\n";
     }
+
+
 
 
     return 0;
