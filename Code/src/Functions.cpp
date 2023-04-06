@@ -104,3 +104,43 @@ int maxNumTrainsTwoStations(string staA, string staB){
 
     return max;
 }
+
+vector<pair<string, string>> maxMAxFlow() {
+
+    int max=0;
+    vector<pair<string, string>> res;
+    vector<pair<string, string>> ret;
+
+
+    for (auto a:g.getVertexSet()){
+        for (auto b:g.getVertexSet()){
+            if (a->getId()!=b->getId()) {
+                int aux = maxNumTrainsTwoStations(a->getId(), b->getId());
+                if (aux >= max) {
+                    max = aux;
+                    res.push_back(make_pair(a->getId(), b->getId()));
+                }
+            }
+        }
+    }
+
+
+    for (auto c:res){
+        int flag =0;
+        if (max == maxNumTrainsTwoStations(c.first,c.second)){
+            for (auto d:ret){
+                if (c.second==d.first && c.first==d.second){
+                    flag =1;
+                }
+            }
+            if (flag==0){
+                ret.push_back(c);
+
+            }
+        }
+    }
+
+    cout << "When taking full advantage of the existing network capacity the most amount of trains "
+            "that can travel between two stations is " << max << " and the pairs of stations are:\n";
+    return ret;
+}

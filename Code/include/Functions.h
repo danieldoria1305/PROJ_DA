@@ -31,6 +31,8 @@ void augmentFlowAlongPath(Vertex *s, Vertex *t, double f);
 
 int maxNumTrainsTwoStations(string staA, string staB);
 
+vector<pair<string, string>> maxMAxFlow();
+
 
 #endif //PROJETODA_FUNCTIONS_H
 

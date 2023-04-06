@@ -1,6 +1,7 @@
 //
 // Created by danieldoria on 03-04-2023.
 //
+/*
 
 #include "../include/App.h"
 #include "../include/Functions.h"
@@ -58,7 +59,8 @@ bool App::printUserMenu() {
                 printMaxTrainsBetweenTwoStations();
                 break;
             }
-            /*case 12:
+            */
+/*case 12:
                 printStationsMostAmountTrains();
                 break;
             case 13:
@@ -75,7 +77,8 @@ bool App::printUserMenu() {
                 break;
             case 31:
                 printPreferences();
-                break;*/
+                break;*//*
+
             case 41:
                 return false;
             default:
@@ -129,3 +132,4 @@ void App::printMaxTrainsBetweenTwoStations() {
     cin.ignore();
 }
 
+*/
