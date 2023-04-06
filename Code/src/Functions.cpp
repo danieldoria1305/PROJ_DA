@@ -36,25 +36,6 @@ void edmondsKarp(string source, string dest) {
     }
 }
 
-void edmondsKarpSameDistrict(string source, string dest) {
-    Vertex* s = g.findVertex(source);
-    Vertex* t = g.findVertex(dest);
-    if (s == nullptr || t == nullptr || s == t)
-        throw std::logic_error("Invalid source and/or target vertex");
-
-    // Reset the flows
-    for (auto v : g.getVertexSet()) {
-        for (auto e: v->getAdj()) {
-            e->setFlow(0);
-        }
-    }
-    // Loop to find augmentation paths
-    while( findAugmentingPathSameDistrict(s, t) ) {
-        double f = findMinResidualAlongPath(s, t);
-        augmentFlowAlongPath(s, t, f);
-    }
-}
-
 bool findAugmentingPath(Vertex *s, Vertex *t) {
     for(auto v : g.getVertexSet()) {
         v->setVisited(false);
@@ -75,9 +56,110 @@ bool findAugmentingPath(Vertex *s, Vertex *t) {
     return t->isVisited();
 }
 
+double findMinResidualAlongPath(Vertex *s, Vertex *t) {
+    double f = INF;
+    for (auto v = t; v != s; ) {
+        auto e = v->getPath();
+        if (e->getDest() == v) {
+            f = std::min(f, e->getCapacity() - e->getFlow());
+            v = e->getOrig();
+        }
+        else {
+            f = min(f, e->getFlow());
+            v = e->getDest();
+        }
+    }
+    return f;
+}
+
+void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
+    for (auto v = t; v != s; ) {
+        auto e = v->getPath();
+        double flow = e->getFlow();
+        if (e->getDest() == v) {
+            e->setFlow(flow + f);
+            v = e->getOrig();
+        }
+        else {
+            e->setFlow(flow - f);
+            v = e->getDest();
+        }
+    }
+}
+
+vector<pair<string, string>> maxMAxFlow() {
+
+    int max=0;
+    vector<pair<string, string>> res;
+    vector<pair<string, string>> ret;
+
+    for(int i = 0; i < g.getVertexSet().size() - 1; i++){
+        for(int j = i + 1; j < g.getVertexSet().size(); j++){
+            if (g.getVertexSet()[i]->getId() != g.getVertexSet()[j]->getId()) {
+                int aux = maxNumTrainsTwoStations(g.getVertexSet()[i]->getId(), g.getVertexSet()[j]->getId());
+                if (aux >= max) {
+                    max = aux;
+                    res.push_back(make_pair(g.getVertexSet()[i]->getId(), g.getVertexSet()[j]->getId()));
+                }
+            }
+        }
+    }
+
+    for (auto c:res){
+        int flag =0;
+        if (max == maxNumTrainsTwoStations(c.first,c.second)){
+            for (auto d:ret){
+                if (c.second==d.first && c.first==d.second){
+                    flag =1;
+                }
+            }
+            if (flag==0){
+                ret.push_back(c);
+
+            }
+        }
+    }
+
+    cout << "When taking full advantage of the existing network capacity the most amount of trains "
+            "that can travel between two stations is " << max << " and the pairs of stations are:\n";
+    return ret;
+}
+
+int maxNumTrainsTwoStations(string staA, string staB){
+    edmondsKarp(staA, staB);
+
+    vector<Vertex*> vert = g.getVertexSet();
+
+    int max = 0;
+    for (auto a:vert){
+        if (a->getId()==staA){
+            for (const auto e: a->getAdj()){
+                max += e->getFlow();
+            }
+        }
+    }
+
+    return max;
+}
+
+int maxNumTrainsTwoStationsSameDistrict(string staA, string staB){
+    edmondsKarpSameDistrict(staA, staB);
+
+    vector<Vertex*> vert = g.getVertexSet();
+
+    int max = 0;
+    for (auto a:vert){
+        if (a->getId()==staA){
+            for (const auto e: a->getAdj()){
+                max += e->getFlow();
+            }
+        }
+    }
+
+    return max;
+}
+
 bool findAugmentingPathSameDistrict(Vertex *s, Vertex *t) {
-
-
     vector <Station> stations = lf2.getStationVector();
 
     string district;
@@ -121,148 +203,53 @@ bool findAugmentingPathSameDistrict(Vertex *s, Vertex *t) {
     return t->isVisited();
 }
 
-double findMinResidualAlongPath(Vertex *s, Vertex *t) {
-    double f = INF;
-    for (auto v = t; v != s; ) {
-        auto e = v->getPath();
-        if (e->getDest() == v) {
-            f = std::min(f, e->getCapacity() - e->getFlow());
-            v = e->getOrig();
-        }
-        else {
-            f = min(f, e->getFlow());
-            v = e->getDest();
+void edmondsKarpSameDistrict(string source, string dest) {
+    Vertex* s = g.findVertex(source);
+    Vertex* t = g.findVertex(dest);
+    if (s == nullptr || t == nullptr || s == t)
+        throw std::logic_error("Invalid source and/or target vertex");
+
+    // Reset the flows
+    for (auto v : g.getVertexSet()) {
+        for (auto e: v->getAdj()) {
+            e->setFlow(0);
         }
     }
-    return f;
-}
-
-void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
-    for (auto v = t; v != s; ) {
-        auto e = v->getPath();
-        double flow = e->getFlow();
-        if (e->getDest() == v) {
-            e->setFlow(flow + f);
-            v = e->getOrig();
-        }
-        else {
-            e->setFlow(flow - f);
-            v = e->getDest();
-        }
+    // Loop to find augmentation paths
+    while( findAugmentingPathSameDistrict(s, t) ) {
+        double f = findMinResidualAlongPath(s, t);
+        augmentFlowAlongPath(s, t, f);
     }
 }
 
-int maxNumTrainsTwoStations(string staA, string staB){
-    edmondsKarp(staA, staB);
-
-    vector<Vertex*> vert = g.getVertexSet();
-
-    int max = 0;
-    for (auto a:vert){
-        if (a->getId()==staA){
-            for (const auto e: a->getAdj()){
-                max += e->getFlow();
-            }
-        }
-    }
-
-    return max;
-}
-
-int maxNumTrainsTwoStationsSameDistrict(string staA, string staB){
-    edmondsKarpSameDistrict(staA, staB);
-
-    vector<Vertex*> vert = g.getVertexSet();
-
-    int max = 0;
-    for (auto a:vert){
-        if (a->getId()==staA){
-            for (const auto e: a->getAdj()){
-                max += e->getFlow();
-            }
-        }
-    }
-
-    return max;
-}
-
-vector<pair<string, string>> maxMAxFlow() {
-
-    int max=0;
-    vector<pair<string, string>> res;
-    vector<pair<string, string>> ret;
-
-    for(int i = 0; i < g.getVertexSet().size() - 1; i++){
-        for(int j = i + 1; j < g.getVertexSet().size(); j++){
-            if (g.getVertexSet()[i]->getId() != g.getVertexSet()[j]->getId()) {
-                int aux = maxNumTrainsTwoStations(g.getVertexSet()[i]->getId(), g.getVertexSet()[j]->getId());
-                if (aux >= max) {
-                    max = aux;
-                    res.push_back(make_pair(g.getVertexSet()[i]->getId(), g.getVertexSet()[j]->getId()));
-                }
-            }
-        }
-    }
-
-    for (auto c:res){
-        int flag =0;
-        if (max == maxNumTrainsTwoStations(c.first,c.second)){
-            for (auto d:ret){
-                if (c.second==d.first && c.first==d.second){
-                    flag =1;
-                }
-            }
-            if (flag==0){
-                ret.push_back(c);
-
-            }
-        }
-    }
-
-    cout << "When taking full advantage of the existing network capacity the most amount of trains "
-            "that can travel between two stations is " << max << " and the pairs of stations are:\n";
-    return ret;
-}
-
-vector <pair<string, int>> maxFlowDistrict(){
+vector <pair<string, int>> maxFlowDistrict(int k){
     lf2.readStations();
     vector <Station> stations = lf2.getStationVector();
     vector <pair<string, string>> used;
-
     vector <pair<string, int>> res;
 
-    int flag = 0;
-    for (auto c:stations){
-        for (auto d : res){
-            if (c.getDistrict() == d.first){
-                flag = 1;
-            }
+    // Initialize res with all unique districts and 0 as their initial flow
+    for (auto c : stations){
+        auto it = find_if(res.begin(), res.end(), [&](const auto& d) {
+            return d.first == c.getDistrict();
+        });
+        if (it == res.end()){
+            res.push_back(make_pair(c.getDistrict(), 0));
         }
-        if (flag == 0){
-            res.push_back(make_pair(c.getDistrict(),0));
-        }
-        flag = 0;
     }
 
-
-    for (auto a:stations){
-        for (auto b: stations){
-            int flag=0;
-            if (a.getName()!=b.getName()){
-                if (a.getDistrict()==b.getDistrict()){
-                    for (auto h: used){
-                        if (h.first==b.getName() && h.second==a.getName()){
-                            flag=1;
-                        }
-                    }
-                    if (flag==0) {
-                        int aux = maxNumTrainsTwoStationsSameDistrict(a.getName(), b.getName());
-                        for (auto &e: res) { // use a reference to update the actual element
-                            if (e.first == a.getDistrict()) {
-                                used.push_back(make_pair(a.getName(), b.getName()));
-                                e.second += aux;
-                                aux = 0;
-                            }
+    // Calculate the maximum flow between each pair of stations in the same district
+    for (auto a : stations){
+        for (auto b : stations){
+            if (a.getName() != b.getName() && a.getDistrict() == b.getDistrict()){
+                auto it = find(used.begin(), used.end(), make_pair(b.getName(), a.getName()));
+                if (it == used.end()){
+                    int aux = maxNumTrainsTwoStationsSameDistrict(a.getName(), b.getName());
+                    for (auto& e : res) {
+                        if (e.first == a.getDistrict()) {
+                            used.push_back(make_pair(a.getName(), b.getName()));
+                            e.second += aux;
+                            aux = 0;
                         }
                     }
                 }
@@ -270,12 +257,17 @@ vector <pair<string, int>> maxFlowDistrict(){
         }
     }
 
+    // Sort districts in decreasing order of flow and return the top k
+    sort(res.begin(), res.end(), [](const auto& a, const auto& b) {
+        return a.second > b.second;
+    });
 
-    return res;
+    vector<pair<string, int>> retorno(res.begin(), res.begin()+k);
 
+    return retorno;
 }
 
-vector <pair<string, int>> maxFlowMunicipality(){
+vector <pair<string, int>> maxFlowMunicipality(int k){
     lf2.readStations();
     vector <Station> stations = lf2.getStationVector();
     vector <pair<string, string>> used;
@@ -322,8 +314,13 @@ vector <pair<string, int>> maxFlowMunicipality(){
     }
 
 
-    return res;
+    sort(res.begin(), res.end(), [](const auto& a, const auto& b) {
+        return a.second > b.second;
+    });
 
+    vector<pair<string, int>> retorno(res.begin(), res.begin()+k);
+
+    return retorno;
 }
 
 void edmondsKarpSameMunicipality(string source, string dest) {

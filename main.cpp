@@ -21,7 +21,7 @@ int main() {
     Graph g=lf.getGraph();
 
 
-    for (auto b:maxFlowMunicipality()){
+    for (auto b:maxFlowMunicipality(10)){
         cout << b.first << "\t" << b.second << "\n";
     }
 
