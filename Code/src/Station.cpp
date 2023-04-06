@@ -6,7 +6,7 @@
 
 Station::Station(string name, string district, string municipality, string township, string line) {
     name_=name;
-    district=district_;
+    district_=district;
     municipality_=municipality;
     township_=township;
     line_=line;

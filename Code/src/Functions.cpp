@@ -36,6 +36,24 @@ void edmondsKarp(string source, string dest) {
     }
 }
 
+void edmondsKarpSameDistrict(string source, string dest) {
+    Vertex* s = g.findVertex(source);
+    Vertex* t = g.findVertex(dest);
+    if (s == nullptr || t == nullptr || s == t)
+        throw std::logic_error("Invalid source and/or target vertex");
+
+    // Reset the flows
+    for (auto v : g.getVertexSet()) {
+        for (auto e: v->getAdj()) {
+            e->setFlow(0);
+        }
+    }
+    // Loop to find augmentation paths
+    while( findAugmentingPathSameDistrict(s, t) ) {
+        double f = findMinResidualAlongPath(s, t);
+        augmentFlowAlongPath(s, t, f);
+    }
+}
 
 bool findAugmentingPath(Vertex *s, Vertex *t) {
     for(auto v : g.getVertexSet()) {
@@ -52,6 +70,52 @@ bool findAugmentingPath(Vertex *s, Vertex *t) {
         }
         for(auto e: v->getAdj()) {
             testAndVisit(q, e, e->getOrig(), e->getFlow());
+        }
+    }
+    return t->isVisited();
+}
+
+bool findAugmentingPathSameDistrict(Vertex *s, Vertex *t) {
+
+
+    vector <Station> stations = lf2.getStationVector();
+
+    string district;
+
+    for (auto r:stations){
+        if (r.getName()==s->getId()){
+            district=r.getDistrict();
+        }
+    }
+
+    for(auto v : g.getVertexSet()) {
+        v->setVisited(false);
+    }
+    s->setVisited(true);
+    std::queue<Vertex *> q;
+    q.push(s);
+    while( ! q.empty() && ! t->isVisited()) {
+        auto v = q.front();
+        q.pop();
+        for(auto e: v->getAdj()) {
+            string test = (e->getDest()->getId());
+            for (auto g:stations){
+                if (test==g.getName()){
+                    if (g.getDistrict()==district) {
+                        testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
+                    }
+                }
+            }
+        }
+        for(auto e: v->getAdj()) {
+            string test = (e->getDest()->getId());
+            for (auto g:stations){
+                if (test==g.getName()){
+                    if (g.getDistrict()==district) {
+                        testAndVisit(q, e, e->getOrig(), e->getFlow());
+                    }
+                }
+            }
         }
     }
     return t->isVisited();
@@ -90,6 +154,23 @@ void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
 
 int maxNumTrainsTwoStations(string staA, string staB){
     edmondsKarp(staA, staB);
+
+    vector<Vertex*> vert = g.getVertexSet();
+
+    int max = 0;
+    for (auto a:vert){
+        if (a->getId()==staA){
+            for (const auto e: a->getAdj()){
+                max += e->getFlow();
+            }
+        }
+    }
+
+    return max;
+}
+
+int maxNumTrainsTwoStationsSameDistrict(string staA, string staB){
+    edmondsKarpSameDistrict(staA, staB);
 
     vector<Vertex*> vert = g.getVertexSet();
 
@@ -144,3 +225,186 @@ vector<pair<string, string>> maxMAxFlow() {
             "that can travel between two stations is " << max << " and the pairs of stations are:\n";
     return ret;
 }
+
+vector <pair<string, int>> maxFlowDistrict(){
+    lf2.readStations();
+    vector <Station> stations = lf2.getStationVector();
+    vector <pair<string, string>> used;
+
+    vector <pair<string, int>> res;
+
+    int flag = 0;
+    for (auto c:stations){
+        for (auto d : res){
+            if (c.getDistrict() == d.first){
+                flag = 1;
+            }
+        }
+        if (flag == 0){
+            res.push_back(make_pair(c.getDistrict(),0));
+        }
+        flag = 0;
+    }
+
+
+    for (auto a:stations){
+        for (auto b: stations){
+            int flag=0;
+            if (a.getName()!=b.getName()){
+                if (a.getDistrict()==b.getDistrict()){
+                    for (auto h: used){
+                        if (h.first==b.getName() && h.second==a.getName()){
+                            flag=1;
+                        }
+                    }
+                    if (flag==0) {
+                        int aux = maxNumTrainsTwoStationsSameDistrict(a.getName(), b.getName());
+                        for (auto &e: res) { // use a reference to update the actual element
+                            if (e.first == a.getDistrict()) {
+                                used.push_back(make_pair(a.getName(), b.getName()));
+                                e.second += aux;
+                                aux = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    return res;
+
+}
+
+vector <pair<string, int>> maxFlowMunicipality(){
+    lf2.readStations();
+    vector <Station> stations = lf2.getStationVector();
+    vector <pair<string, string>> used;
+
+    vector <pair<string, int>> res;
+
+    int flag = 0;
+    for (auto c:stations){
+        for (auto d : res){
+            if (c.getMunicipality() == d.first){
+                flag = 1;
+            }
+        }
+        if (flag == 0){
+            res.push_back(make_pair(c.getMunicipality(),0));
+        }
+        flag = 0;
+    }
+
+
+    for (auto a:stations){
+        for (auto b: stations){
+            int flag=0;
+            if (a.getName()!=b.getName()){
+                if (a.getMunicipality()==b.getMunicipality()){
+                    for (auto h: used){
+                        if (h.first==b.getName() && h.second==a.getName()){
+                            flag=1;
+                        }
+                    }
+                    if (flag==0) {
+                        int aux = maxNumTrainsTwoStationsSameMunicipality(a.getName(), b.getName());
+                        for (auto &e: res) { // use a reference to update the actual element
+                            if (e.first == a.getMunicipality()) {
+                                used.push_back(make_pair(a.getName(), b.getName()));
+                                e.second += aux;
+                                aux = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    return res;
+
+}
+
+void edmondsKarpSameMunicipality(string source, string dest) {
+    Vertex* s = g.findVertex(source);
+    Vertex* t = g.findVertex(dest);
+    if (s == nullptr || t == nullptr || s == t)
+        throw std::logic_error("Invalid source and/or target vertex");
+
+    // Reset the flows
+    for (auto v : g.getVertexSet()) {
+        for (auto e: v->getAdj()) {
+            e->setFlow(0);
+        }
+    }
+    // Loop to find augmentation paths
+    while( findAugmentingPathSameMunicipality(s, t) ) {
+        double f = findMinResidualAlongPath(s, t);
+        augmentFlowAlongPath(s, t, f);
+    }
+
+}
+
+bool findAugmentingPathSameMunicipality(Vertex *s, Vertex *t) {
+
+
+    vector <Station> stations = lf2.getStationVector();
+
+    string Municipality;
+
+    for (auto r:stations){
+        if (r.getName()==s->getId()){
+            Municipality=r.getMunicipality();
+        }
+    }
+
+    for(auto v : g.getVertexSet()) {
+        v->setVisited(false);
+    }
+    s->setVisited(true);
+    std::queue<Vertex *> q;
+    q.push(s);
+    while( ! q.empty() && ! t->isVisited()) {
+        auto v = q.front();
+        q.pop();
+        for(auto e: v->getAdj()) {
+            string test = (e->getDest()->getId());
+            for (auto g:stations){
+                if (test==g.getName()){
+                    if (g.getMunicipality()==Municipality) {
+                        testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
+                    }
+                }
+            }
+        }
+        for(auto e: v->getAdj()) {
+            string test = (e->getDest()->getId());
+            for (auto g:stations){
+                if (test==g.getName()){
+                    if (g.getMunicipality()==Municipality) {
+                        testAndVisit(q, e, e->getOrig(), e->getFlow());
+                    }
+                }
+            }
+        }
+    }
+    return t->isVisited();}
+
+int maxNumTrainsTwoStationsSameMunicipality(string staA, string staB) {
+    edmondsKarpSameMunicipality(staA, staB);
+
+    vector<Vertex*> vert = g.getVertexSet();
+
+    int max = 0;
+    for (auto a:vert){
+        if (a->getId()==staA){
+            for (const auto e: a->getAdj()){
+                max += e->getFlow();
+            }
+        }
+    }
+
+    return max;}

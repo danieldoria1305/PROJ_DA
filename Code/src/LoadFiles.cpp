@@ -91,8 +91,6 @@ void LoadFiles::loadNetwork(string str) {
 
     Network aux (result[0], result[1], stoi(result[2]), result[3]);
 
-    Vertex a(aux.getStationA());
-    Vertex b(aux.getStationB());
 
     for (auto e: getNetworkVector()){
         if (aux.getCapacity()==e.getCapacity() && aux.getStationB()==e.getStationB() && aux.getStationA()==e.getStationA() && aux.getService()==e.getService()){
