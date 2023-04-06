@@ -1,7 +1,7 @@
 //
 // Created by danieldoria on 03-04-2023.
 //
-/*
+
 
 #include "../include/App.h"
 #include "../include/Functions.h"
@@ -59,11 +59,10 @@ bool App::printUserMenu() {
                 printMaxTrainsBetweenTwoStations();
                 break;
             }
-            */
-/*case 12:
+            case 12:
                 printStationsMostAmountTrains();
                 break;
-            case 13:
+            /*case 13:
                 printTopkMunicipalitiesDistricts();
                 break;
             case 14:
@@ -77,7 +76,7 @@ bool App::printUserMenu() {
                 break;
             case 31:
                 printPreferences();
-                break;*//*
+                break;*/
 
             case 41:
                 return false;
@@ -123,8 +122,8 @@ void App::printMaxTrainsBetweenTwoStations() {
 
     cout << "╒═════════════════════════════════════════════╕\n"
             "     The number of trains that can travel      \n";
-    cout << "  simultaneously between " << station1
-         << " and " << station2 << " is: " << maxNumTrainsTwoStations(station1, station2) << "\n"; // Aqui vai ser chamado o metodo que calcula o numero de comboios que podem viajar entre duas estações
+    cout << "  simultaneously between " << station1 << "\n";
+    cout << "  and " << station2 << " is: " << maxNumTrainsTwoStations(station1, station2) << "\n"; // Aqui vai ser chamado o metodo que calcula o numero de comboios que podem viajar entre duas estações
     cout << "╞═════════════════════════════════════════════╡\n"
             "│  Press enter to return                      │\n"
             "╘═════════════════════════════════════════════╛\n"
@@ -132,4 +131,19 @@ void App::printMaxTrainsBetweenTwoStations() {
     cin.ignore();
 }
 
-*/
+void App::printStationsMostAmountTrains() {
+    vector<pair<string, string>> aux = maxMAxFlow();
+
+    cout <<  "╒══════════════════════════════════════════════╕\n"
+             "│               Pairs of Stations              │\n"
+             "╞══════════════════════════════════════════════╡\n";
+
+    for(auto a: aux){
+        cout << "    " << a.first << " │ " << a.second << "\n";
+        cout <<  "╞══════════════════════════════════════════════╡\n";
+    }
+    cout << "│  Press enter to return                       │\n"
+            "╘══════════════════════════════════════════════╛\n"
+            "                                               \n";
+    cin.ignore();
+}

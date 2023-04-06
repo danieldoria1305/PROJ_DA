@@ -12,8 +12,8 @@ public:
     void start();
     bool printUserMenu();
     void printMaxTrainsBetweenTwoStations();
-    /*void printStationsMostAmountTrains();
-    void printTopkMunicipalitiesDistricts();
+    void printStationsMostAmountTrains();
+    /*void printTopkMunicipalitiesDistricts();
     void printMaxTrainsArriveSimul();
     void printTrainsTravelMinimumCost();
     void printMaxTrainsReducedConnect();
