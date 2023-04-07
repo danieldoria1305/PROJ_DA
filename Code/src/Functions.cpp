@@ -160,47 +160,66 @@ int maxNumTrainsTwoStationsSameDistrict(string staA, string staB){
 }
 
 bool findAugmentingPathSameDistrict(Vertex *s, Vertex *t) {
-    vector <Station> stations = lf2.getStationVector();
+    vector<Station> stations = lf2.getStationVector();
 
-    string district;
-
-    for (auto r:stations){
-        if (r.getName()==s->getId()){
-            district=r.getDistrict();
+// Pre-compute the district for the starting station
+    string district = "";
+    for (const auto& r : stations) {
+        if (r.getName() == s->getId()) {
+            district = r.getDistrict();
+            break;
         }
     }
 
-    for(auto v : g.getVertexSet()) {
+// Use an unordered_map to map station names to districts
+    unordered_map<string, string> station_districts;
+    for (const auto& station : stations) {
+        station_districts[station.getName()] = station.getDistrict();
+    }
+
+// Cache commonly used values
+    bool visited = false;
+    string dest_id, orig_id;
+    int capacity, flow;
+
+    for (auto v : g.getVertexSet()) {
         v->setVisited(false);
     }
+
     s->setVisited(true);
-    std::queue<Vertex *> q;
+    queue<Vertex*> q;
     q.push(s);
-    while( ! q.empty() && ! t->isVisited()) {
+
+    while (!q.empty() && !t->isVisited()) {
         auto v = q.front();
         q.pop();
-        for(auto e: v->getAdj()) {
-            string test = (e->getDest()->getId());
-            for (auto g:stations){
-                if (test==g.getName()){
-                    if (g.getDistrict()==district) {
-                        testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
-                    }
-                }
+
+        for (auto e : v->getAdj()) {
+            dest_id = e->getDest()->getId();
+            capacity = e->getCapacity();
+            flow = e->getFlow();
+
+            // Use the unordered_map to check if the station district matches the current district
+            auto it = station_districts.find(dest_id);
+            if (it != station_districts.end() && it->second == district) {
+                testAndVisit(q, e, e->getDest(), capacity - flow);
             }
         }
-        for(auto e: v->getAdj()) {
-            string test = (e->getDest()->getId());
-            for (auto g:stations){
-                if (test==g.getName()){
-                    if (g.getDistrict()==district) {
-                        testAndVisit(q, e, e->getOrig(), e->getFlow());
-                    }
-                }
+
+        for (auto e : v->getAdj()) {
+            orig_id = e->getOrig()->getId();
+            flow = e->getFlow();
+
+            // Use the unordered_map to check if the station district matches the current district
+            auto it = station_districts.find(orig_id);
+            if (it != station_districts.end() && it->second == district) {
+                testAndVisit(q, e, e->getOrig(), flow);
             }
         }
     }
+
     return t->isVisited();
+
 }
 
 void edmondsKarpSameDistrict(string source, string dest) {
@@ -261,10 +280,11 @@ vector <pair<string, int>> maxFlowDistrict(int k){
     sort(res.begin(), res.end(), [](const auto& a, const auto& b) {
         return a.second > b.second;
     });
-
-    vector<pair<string, int>> retorno(res.begin(), res.begin()+k);
-
-    return retorno;
+    vector<pair<string, int>> ret;
+    for (int j = 0; j < k && j < res.size(); j++){
+        ret.push_back(res[j]);
+    }
+    return ret;
 }
 
 vector <pair<string, int>> maxFlowMunicipality(int k){
@@ -344,44 +364,41 @@ void edmondsKarpSameMunicipality(string source, string dest) {
 }
 
 bool findAugmentingPathSameMunicipality(Vertex *s, Vertex *t) {
-
-
     vector <Station> stations = lf2.getStationVector();
 
     string Municipality;
 
-    for (auto r:stations){
-        if (r.getName()==s->getId()){
-            Municipality=r.getMunicipality();
+    for (auto r : stations){
+        if (r.getName() == s->getId()){
+            Municipality = r.getMunicipality();
+            break; // Once we find the starting station, we can exit the loop
         }
     }
 
-    for(auto v : g.getVertexSet()) {
+    for (auto v : g.getVertexSet()) {
         v->setVisited(false);
     }
     s->setVisited(true);
-    std::queue<Vertex *> q;
+
+    std::queue<Vertex*> q;
     q.push(s);
-    while( ! q.empty() && ! t->isVisited()) {
+
+    while (!q.empty() && !t->isVisited()) {
         auto v = q.front();
         q.pop();
-        for(auto e: v->getAdj()) {
-            string test = (e->getDest()->getId());
-            for (auto g:stations){
-                if (test==g.getName()){
-                    if (g.getMunicipality()==Municipality) {
-                        testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
-                    }
+        for (auto e : v->getAdj()) {
+            string test = e->getDest()->getId();
+            for (auto g : stations) {
+                if (test == g.getName() && g.getMunicipality() == Municipality) {
+                    testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
                 }
             }
         }
-        for(auto e: v->getAdj()) {
-            string test = (e->getDest()->getId());
-            for (auto g:stations){
-                if (test==g.getName()){
-                    if (g.getMunicipality()==Municipality) {
-                        testAndVisit(q, e, e->getOrig(), e->getFlow());
-                    }
+        for (auto e : v->getAdj()) {
+            string test = e->getOrig()->getId();
+            for (auto g : stations) {
+                if (test == g.getName() && g.getMunicipality() == Municipality) {
+                    testAndVisit(q, e, e->getOrig(), e->getFlow());
                 }
             }
         }
