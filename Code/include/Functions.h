@@ -49,7 +49,22 @@ vector <pair<string, int>> maxFlowDistrict(int k);
 
 vector <pair<string, int>> maxFlowMunicipality(int k);
 
+int maxNumTrainsTwoStationsReduced(string staA, string staB, vector<Vertex*> vert);
 
+/*
+ * staA -> first station to remove
+ * staB -> second station to remove
+ * staA and staB should be adj from one another (validation needed in menu)
+ *
+ * staC -> origin
+ * staD -> destination
+ *
+ * maxNumReducedConnectivity -> returns the max flow between staC and staD if we remove the edge that connects
+ * staA and staB
+ *
+ */
+
+int maxNumReducedConnectivity (string staA,string staB, string staC, string staD);
 
 #endif //PROJETODA_FUNCTIONS_H
 

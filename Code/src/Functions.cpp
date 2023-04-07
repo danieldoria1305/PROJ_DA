@@ -419,4 +419,38 @@ int maxNumTrainsTwoStationsSameMunicipality(string staA, string staB) {
         }
     }
 
-    return max;}
+    return max;
+}
+
+
+int maxNumReducedConnectivity (string staA,string staB, string staC, string staD){
+    vector <Vertex*> test = g.getVertexSet();
+
+
+    for (auto a: test){
+        if (a->getId()==staA) {
+            a->removeEdge(g.findVertex(a->getId()), g.findVertex(staB));
+        }
+        if (a->getId()==staB) {
+            a->removeEdge(g.findVertex(a->getId()), g.findVertex(staA));
+        }
+    }
+
+    int ret = maxNumTrainsTwoStationsReduced(staC, staD, test);
+    return ret;
+}
+
+int maxNumTrainsTwoStationsReduced(string staA, string staB, vector<Vertex*> vert){
+    edmondsKarp(staA, staB);
+
+    int max = 0;
+    for (auto a:vert){
+        if (a->getId()==staA){
+            for (const auto e: a->getAdj()){
+                max += e->getFlow();
+            }
+        }
+    }
+
+    return max;
+}

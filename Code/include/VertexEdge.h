@@ -46,8 +46,7 @@ public:
     // void setDist(double dist);
     void setPath(Edge *path);
     Edge * addEdge(Vertex* orig, Vertex *dest, int capacity, string service);
-    bool removeEdge(string destID);
-
+    bool removeEdge(Vertex *orig, Vertex *dest);
     // friend class MutablePriorityQueue<Vertex>;
 protected:
     string id;                // identifier

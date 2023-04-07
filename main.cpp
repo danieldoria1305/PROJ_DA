@@ -21,11 +21,15 @@ int main() {
     Graph g=lf.getGraph();
 
 
-    for (auto b:maxFlowMunicipality(10)){
-        cout << b.first << "\t" << b.second << "\n";
-    }
+    vector <Vertex*> test = g.getVertexSet();
 
+    int fi = maxNumTrainsTwoStations("Pombal", "Entroncamento");
 
+    cout << fi << "\n";
+
+    int two = maxNumReducedConnectivity("Porto Campanhã", "Espinho", "Porto Campanhã", "Lisboa Oriente");
+
+    cout << two;
 
 
     return 0;

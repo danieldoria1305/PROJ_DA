@@ -90,6 +90,23 @@ Edge * Vertex::addEdge(Vertex *orig, Vertex *dest, int capacity, string service)
     return newEdge;
 }
 
+bool Vertex::removeEdge(Vertex *orig, Vertex *dest) {
+    for (auto it = adj.begin(); it != adj.end(); ++it) {
+        Edge *edge = *it;
+        if (edge->getOrig() == orig && edge->getDest() == dest) {
+            adj.erase(it);
+            delete edge;
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
 void Vertex::setPath(Edge *path) {
     this->path=path;
 }
@@ -98,31 +115,5 @@ Edge *Vertex::getPath() const {
     return this->path;
 }
 
-/*bool Vertex::removeEdge(string destID) {
-    bool removedEdge = false;
-    auto it = adj.begin();
-    while (it != adj.end()) {
-        Edge *edge = *it;
-        Vertex *dest = edge->getDest();
-        if (dest->getId() == destID) {
-            it = adj.erase(it);
-            // Also remove the corresponding edge from the incoming list
-            auto it2 = dest->incoming.begin();
-            while (it2 != dest->incoming.end()) {
-                if ((*it2)->getOrig()->getId() == id) {
-                    it2 = dest->incoming.erase(it2);
-                }
-                else {
-                    it2++;
-                }
-            }
-            delete edge;
-            removedEdge = true; // allows for multiple edges to connect the same pair of vertices (multigraph)
-        }
-        else {
-            it++;
-        }
-    }
-    return removedEdge;
-}*/
+
 
