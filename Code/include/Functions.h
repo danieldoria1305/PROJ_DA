@@ -66,6 +66,10 @@ int maxNumTrainsTwoStationsReduced(string staA, string staB, vector<Vertex*> ver
 
 int maxNumReducedConnectivity (string staA,string staB, string staC, string staD);
 
+void dijkstraShortestPath(Vertex* source, Vertex* dest);
+
+void leastCostPathAndMaxFlow(string staA, string staB);
+
 #endif //PROJETODA_FUNCTIONS_H
 
 

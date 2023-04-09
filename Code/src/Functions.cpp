@@ -87,6 +87,23 @@ void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
     }
 }
 
+int maxNumTrainsTwoStations(string staA, string staB){
+    edmondsKarp(staA, staB);
+
+    vector<Vertex*> vert = g.getVertexSet();
+
+    int max = 0;
+    for (auto a:vert){
+        if (a->getId()==staA){
+            for (const auto e: a->getAdj()){
+                max += e->getFlow();
+            }
+        }
+    }
+
+    return max;
+}
+
 vector<pair<string, string>> maxMAxFlow() {
 
     int max=0;
@@ -123,23 +140,6 @@ vector<pair<string, string>> maxMAxFlow() {
     cout << "When taking full advantage of the existing network capacity the most amount of trains "
             "that can travel between two stations is " << max << " and the pairs of stations are:\n";
     return ret;
-}
-
-int maxNumTrainsTwoStations(string staA, string staB){
-    edmondsKarp(staA, staB);
-
-    vector<Vertex*> vert = g.getVertexSet();
-
-    int max = 0;
-    for (auto a:vert){
-        if (a->getId()==staA){
-            for (const auto e: a->getAdj()){
-                max += e->getFlow();
-            }
-        }
-    }
-
-    return max;
 }
 
 int maxNumTrainsTwoStationsSameDistrict(string staA, string staB){
@@ -422,7 +422,6 @@ int maxNumTrainsTwoStationsSameMunicipality(string staA, string staB) {
     return max;
 }
 
-
 int maxNumReducedConnectivity (string staA,string staB, string staC, string staD){
     vector <Vertex*> test = g.getVertexSet();
 
@@ -453,4 +452,97 @@ int maxNumTrainsTwoStationsReduced(string staA, string staB, vector<Vertex*> ver
     }
 
     return max;
+}
+
+void leastCostPathAndMaxFlow(string source, string dest) {
+    dijkstraShortestPath(g.findVertex(source),g.findVertex(dest));
+    Vertex* s = g.findVertex(source);
+    Vertex* t = g.findVertex(dest);
+
+    if (s == nullptr || t == nullptr || s == t)
+        throw std::logic_error("Invalid source and/or target vertex");
+
+    // Calculate the cost and flow along the shortest path
+    double cost = 0;
+    double flow = INF;
+    vector<Vertex*> path; // vector to store the vertices in the path
+    for (auto v = t; v != s; ) {
+        path.push_back(v); // add the current vertex to the path vector
+        auto e = v->getPath();
+        if (e->getDest() == v) {
+            cost += e->getServiceCost();
+            flow = std::min(flow, e->getCapacity() - e->getFlow());
+            v = e->getOrig();
+        }
+        else {
+            cost += e->getServiceCost();
+            flow = std::min(flow, e->getFlow());
+            v = e->getDest();
+        }
+    }
+    path.push_back(s); // add the source vertex to the path vector
+
+    // Reverse the path vector since it was constructed in reverse order
+    reverse(path.begin(), path.end());
+
+    // Update the flow along the shortest path
+    for (auto v = t; v != s; ) {
+        auto e = v->getPath();
+        if (e->getDest() == v) {
+            e->setFlow(e->getFlow() + flow);
+            v = e->getOrig();
+        }
+        else {
+            e->setFlow(e->getFlow() - flow);
+            v = e->getDest();
+        }
+    }
+
+    std::cout << "Least cost path from " << source << " to " << dest << " has cost " << cost << " and max flow " << flow << std::endl;
+
+    // Output the vertexes of the path
+    std::cout << "Path: ";
+    for (auto v : path) {
+        std::cout << v->getId() << " ";
+    }
+    std::cout << std::endl;
+}
+
+void dijkstraShortestPath(Vertex* source, Vertex* dest) {
+    for (auto v : g.getVertexSet()) {
+        v->setVisited(false);
+        v->setDist(INF);
+    }
+
+    source->setDist(0);
+
+    std::priority_queue<std::pair<double, Vertex*>, std::vector<std::pair<double, Vertex*>>, std::greater<std::pair<double, Vertex*>>> pq;
+
+    pq.push({ 0.0, source });
+
+    while (!pq.empty()) {
+        auto curr = pq.top().second;
+        pq.pop();
+
+        if (curr == dest) {
+            return;
+        }
+
+        if (!curr->isVisited()) {
+            curr->setVisited(true);
+
+            for (auto edge : curr->getAdj()) {
+                auto neighbor = edge->getDest();
+
+                if (!neighbor->isVisited()) {
+                    double newDist = curr->getDist() + edge->getServiceCost();
+                    if (newDist < neighbor->getDist()) {
+                        neighbor->setDist(newDist);
+                        neighbor->setPath(edge);
+                        pq.push({ newDist, neighbor });
+                    }
+                }
+            }
+        }
+    }
 }

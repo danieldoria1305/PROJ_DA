@@ -38,7 +38,8 @@ public:
     // double getDist() const;
     Edge *getPath() const;
 
-
+    double getDist() const;
+    void setDist(double d);
     void setId(string info);
     void setVisited(bool visited);
     // void setProcesssing(bool processing);
@@ -51,7 +52,7 @@ public:
 protected:
     string id;                // identifier
     std::vector<Edge *> adj;  // outgoing edges
-
+    double dist;
     // auxiliary fields
     bool visited = false; // used by DFS, BFS, Prim ...
     // bool processing = false; // used by isDAG (in addition to the visited attribute)
@@ -76,6 +77,8 @@ public:
     Vertex * getOrig() const;
     Edge *getReverse() const;
     double getFlow() const;
+    string getService() const;
+    int getServiceCost() const;
 
     void setSelected(bool selected);
     void setReverse(Edge *reverse);

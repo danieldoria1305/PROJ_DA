@@ -22,6 +22,14 @@ int Edge::getCapacity() const {
     return this->capacity;
 }
 
+double Vertex::getDist() const {
+    return dist;
+}
+
+void Vertex::setDist(double d) {
+    dist = d;
+}
+
 bool Edge::isSelected() const {
     return this->selected;
 }
@@ -48,6 +56,14 @@ void Edge::setFlow(double flow) {
 
 double Edge::getFlow() const {
     return this->flow;
+}
+
+string Edge::getService() const {
+    return this->service;
+}
+
+int Edge::getServiceCost() const {
+    return service == "STANDARD" ? 2 : 4;
 }
 
 Vertex::Vertex(string id) {

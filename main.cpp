@@ -23,13 +23,7 @@ int main() {
 
     vector <Vertex*> test = g.getVertexSet();
 
-    int fi = maxNumTrainsTwoStations("Pombal", "Entroncamento");
-
-    cout << fi << "\n";
-
-    int two = maxNumReducedConnectivity("Porto Campanhã", "Espinho", "Porto Campanhã", "Lisboa Oriente");
-
-    cout << two;
+    leastCostPathAndMaxFlow("Porto Campanhã", "Lisboa Oriente");
 
 
     return 0;
