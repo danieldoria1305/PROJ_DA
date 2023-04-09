@@ -70,6 +70,13 @@ void dijkstraShortestPath(Vertex* source, Vertex* dest);
 
 void leastCostPathAndMaxFlow(string staA, string staB);
 
+void report (string staA, string staB, string staC, string staD);
+
+int maxTrainsIncoming (string staA);
+
+
+
+
 #endif //PROJETODA_FUNCTIONS_H
 
 

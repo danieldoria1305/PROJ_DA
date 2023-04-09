@@ -7,8 +7,6 @@
 LoadFiles lf2;
 Graph g = lf2.getGraph();
 
-
-
 void testAndVisit(std::queue< Vertex*> &q, Edge *e, Vertex *w, double residual) {
     if (! w->isVisited() && residual > 0) {
         w->setVisited(true);
@@ -73,6 +71,7 @@ double findMinResidualAlongPath(Vertex *s, Vertex *t) {
 }
 
 void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
+
     for (auto v = t; v != s; ) {
         auto e = v->getPath();
         double flow = e->getFlow();
@@ -423,20 +422,37 @@ int maxNumTrainsTwoStationsSameMunicipality(string staA, string staB) {
 }
 
 int maxNumReducedConnectivity (string staA,string staB, string staC, string staD){
+    lf2.readNetwork();
     vector <Vertex*> test = g.getVertexSet();
 
+    int flag = 0;
 
-    for (auto a: test){
-        if (a->getId()==staA) {
-            a->removeEdge(g.findVertex(a->getId()), g.findVertex(staB));
-        }
-        if (a->getId()==staB) {
-            a->removeEdge(g.findVertex(a->getId()), g.findVertex(staA));
+    vector<Network> res = lf2.getNetworkVector();
+
+    for (auto a: res){
+        if (a.getStationA()==staA && a.getStationB()==staB || a.getStationA()==staB && a.getStationB()==staA){
+            flag =1;
         }
     }
 
-    int ret = maxNumTrainsTwoStationsReduced(staC, staD, test);
-    return ret;
+    if (flag == 0){
+        cout << "The connection you want to remove does not exist";
+        return -1;
+    }
+
+    else {
+        for (auto a: test) {
+            if (a->getId() == staA) {
+                a->removeEdge(g.findVertex(a->getId()), g.findVertex(staB));
+            }
+            if (a->getId() == staB) {
+                a->removeEdge(g.findVertex(a->getId()), g.findVertex(staA));
+            }
+        }
+
+        int ret = maxNumTrainsTwoStationsReduced(staC, staD, test);
+        return ret;
+    }
 }
 
 int maxNumTrainsTwoStationsReduced(string staA, string staB, vector<Vertex*> vert){
@@ -455,12 +471,14 @@ int maxNumTrainsTwoStationsReduced(string staA, string staB, vector<Vertex*> ver
 }
 
 void leastCostPathAndMaxFlow(string source, string dest) {
-    dijkstraShortestPath(g.findVertex(source),g.findVertex(dest));
     Vertex* s = g.findVertex(source);
     Vertex* t = g.findVertex(dest);
 
     if (s == nullptr || t == nullptr || s == t)
         throw std::logic_error("Invalid source and/or target vertex");
+
+    dijkstraShortestPath(s,t);
+
 
     // Calculate the cost and flow along the shortest path
     double cost = 0;
@@ -546,3 +564,24 @@ void dijkstraShortestPath(Vertex* source, Vertex* dest) {
         }
     }
 }
+
+void report (string staA, string staB, string staC, string staD){
+    int first = maxNumTrainsTwoStations(staC, staD);
+
+    int second = maxNumReducedConnectivity(staA, staB, staC, staD);
+
+    lf2.readNetwork();
+
+    vector<Network> net = lf2.getNetworkVector();
+
+    for (auto a: net){
+        if (a.getStationA()==staA && a.getStationB()==staB){
+            cout << "The flow between the removed stations is: " << a.getCapacity() << "\n";
+        }
+    }
+
+    cout << "The max flow between " << staC << " and " << staD << " was: " << first << ". After the cut of the connection"
+                                                                                      " between " << staA << " and " << staB << ", the max flow is now: " << first-second << "\n";
+
+}
+

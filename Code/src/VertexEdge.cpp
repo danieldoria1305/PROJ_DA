@@ -12,6 +12,7 @@ Edge::Edge(Vertex *orig, Vertex *dest, int capacity, string service) {
     this->dest=dest;
     this->capacity=capacity;
     this->service=service;
+    this->flow=0;
 }
 
 Vertex *Edge::getDest() const {

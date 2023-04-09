@@ -9,23 +9,8 @@
 using namespace std;
 
 int main() {
-/*    App a;
-    a.start();*/
-
-
-    LoadFiles lf;
-
-    lf.readStations();
-    lf.readNetwork();
-    lf.createAdjs();
-    Graph g=lf.getGraph();
-
-
-    vector <Vertex*> test = g.getVertexSet();
-
-    leastCostPathAndMaxFlow("Porto Campanhã", "Lisboa Oriente");
-
-
+    App a;
+    a.start();
     return 0;
 }
 
