@@ -49,7 +49,7 @@ void edmondsKarp(string source, string dest) {
 }
 
 /**
- * @complexity The time complexity of the findAugmentingPath function is O(EV), where E is the number of edges in the graph and V is the number of vertices in the graph.
+ * @complexity The time complexity of the findAugmentingPath function is O(n)
  * @param source
  * @param dest
  */
@@ -117,7 +117,7 @@ void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
 
 /**
  * Ths function returns the most amount trains that can travel between two stations (staA and staB)
- * @complexity The overall time complexity of the maxNumTrainsTwoStations function is O(V^2 E).
+ * @complexity The overall time complexity of the maxNumTrainsTwoStations function is O(VE^2 + n).
  * @param staA
  * @param staB
  */
@@ -183,7 +183,7 @@ vector<pair<string, string>> maxMAxFlow() {
 /**
  * @complexity The time complexity of the function is O(E * V^2).
  * @param staA
- * @param staB
+ * @param staBe
  */
 int maxNumTrainsTwoStationsSameDistrict(string staA, string staB){
     edmondsKarpSameDistrict(staA, staB);
@@ -498,7 +498,7 @@ bool findAugmentingPathSameMunicipality(Vertex *s, Vertex *t) {
 /**
  * After cutting the connection between two vertexes (staA and staB), the function returns the max flow between two
  * stations (staC and staD)
- * @complextiy
+ * @complextiy This fuction has a complexity of o(n^2 + E^2 * V^2)
  * @param staA
  * @param staB
  * @param staC
@@ -592,7 +592,7 @@ int maxNumTrainsTwoStationsReduced(string staA, string staB, vector<Vertex*> ver
 /**
  * The function returns the minimum cost trip we can make between two stations (staA and staB) and its
  * max flow. The max flow we can send from one station to another with the minimum cost.
- * @complexity
+ * @complexity In this function, the time complexity is O((E+V)logV + n)
  * @param source
  * @param dest
  */
@@ -655,7 +655,7 @@ void leastCostPathAndMaxFlow(string source, string dest) {
 }
 
 /**
- * @complexity In this function, the time complexity is also O((E+V)logV)
+ * @complexity In this function, the time complexity is O((E+V)logV)
  * @param source
  * @param dest
  */
@@ -701,7 +701,7 @@ void dijkstraShortestPath(Vertex* source, Vertex* dest) {
 /**
  * * After removing the connections between two stations, we evaluate the max flow we can send from one station to another
  * and this function returns that evaluation.
- * @complexity
+ * @complexity This function has a complexity of O(VE^2 + n + n^2 + EV^2 + n)
  * @param staA
  * @param staB
  * @param staC
