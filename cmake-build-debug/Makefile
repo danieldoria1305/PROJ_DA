@@ -297,29 +297,29 @@ Code/src/VertexEdge.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/VertexEdge.cpp.s
 .PHONY : Code/src/VertexEdge.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+Code/src/main.o: Code/src/main.cpp.o
+.PHONY : Code/src/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/main.cpp.o
-.PHONY : main.cpp.o
+Code/src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/main.cpp.o
+.PHONY : Code/src/main.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+Code/src/main.i: Code/src/main.cpp.i
+.PHONY : Code/src/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/main.cpp.i
-.PHONY : main.cpp.i
+Code/src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/main.cpp.i
+.PHONY : Code/src/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+Code/src/main.s: Code/src/main.cpp.s
+.PHONY : Code/src/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/main.cpp.s
-.PHONY : main.cpp.s
+Code/src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProjetoDA.dir/build.make CMakeFiles/ProjetoDA.dir/Code/src/main.cpp.s
+.PHONY : Code/src/main.cpp.s
 
 # Help Target
 help:
@@ -351,9 +351,9 @@ help:
 	@echo "... Code/src/VertexEdge.o"
 	@echo "... Code/src/VertexEdge.i"
 	@echo "... Code/src/VertexEdge.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... Code/src/main.o"
+	@echo "... Code/src/main.i"
+	@echo "... Code/src/main.s"
 .PHONY : help
 
 

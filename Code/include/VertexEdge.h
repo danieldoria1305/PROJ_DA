@@ -1,10 +1,5 @@
-//
-// Created by gonca on 20/03/2023.
-//
-
 #ifndef PROJETODA_VERTEXEDGE_H
 #define PROJETODA_VERTEXEDGE_H
-
 
 #include <iostream>
 #include <vector>

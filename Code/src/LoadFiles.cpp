@@ -1,10 +1,4 @@
-//
-// Created by danieldoria on 15-03-2023.
-//
-
 #include "../include/LoadFiles.h"
-#include "../include/VertexEdge.h"
-#include "../include/Graph.h"
 Graph StationsGraph;
 
 vector <Station> stations;

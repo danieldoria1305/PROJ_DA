@@ -1,7 +1,3 @@
-//
-// Created by gonca on 20/03/2023.
-//
-
 #ifndef PROJETODA_GRAPH_H
 #define PROJETODA_GRAPH_H
 

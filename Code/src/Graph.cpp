@@ -1,8 +1,3 @@
-//
-// Created by gonca on 20/03/2023.
-//
-
-
 #include "../include/Graph.h"
 #include "../include/Station.h"
 #include "../include/LoadFiles.h"

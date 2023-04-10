@@ -115,7 +115,7 @@
 		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/Code/src/VertexEdge.cpp">
 			<Option target="ProjetoDA"/>
 		</Unit>
-		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/main.cpp">
+		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/Code/src/main.cpp">
 			<Option target="ProjetoDA"/>
 		</Unit>
 		<Unit filename="/home/danieldoria/Desktop/DA/ProjetoDA/CMakeLists.txt">

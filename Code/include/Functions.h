@@ -1,7 +1,3 @@
-//
-// Created by gonca on 05/04/2023.
-//
-
 #ifndef PROJETODA_FUNCTIONS_H
 #define PROJETODA_FUNCTIONS_H
 

@@ -1,7 +1,3 @@
-//
-// Created by danieldoria on 15-03-2023.
-//
-
 #include "../include/Station.h"
 
 Station::Station(string name, string district, string municipality, string township, string line) {

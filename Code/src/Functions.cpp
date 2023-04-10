@@ -1,7 +1,3 @@
-//
-// Created by gonca on 05/04/2023.
-//
-
 using namespace std;
 
 #include "../include/Functions.h"

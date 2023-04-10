@@ -1,10 +1,3 @@
-//
-// Created by gonca on 03/04/2023.
-//
-
-
-
-
 #include "../include/VertexEdge.h"
 
 Edge::Edge(Vertex *orig, Vertex *dest, int capacity, string service) {

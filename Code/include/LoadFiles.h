@@ -1,7 +1,3 @@
-//
-// Created by danieldoria on 15-03-2023.
-//
-
 #ifndef PROJETODA_LOADFILES_H
 #define PROJETODA_LOADFILES_H
 

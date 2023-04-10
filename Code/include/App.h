@@ -1,7 +1,3 @@
-//
-// Created by danieldoria on 03-04-2023.
-//
-
 #ifndef PROJETODA_APP_H
 #define PROJETODA_APP_H
 
@@ -19,7 +15,6 @@ public:
     void printReportStations();
 private:
     LoadFiles loadFiles;
-    //set<string> stations_;
     string type_;
 };
 

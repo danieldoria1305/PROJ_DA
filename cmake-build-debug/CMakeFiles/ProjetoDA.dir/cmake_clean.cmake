@@ -13,8 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ProjetoDA.dir/Code/src/Station.cpp.o.d"
   "CMakeFiles/ProjetoDA.dir/Code/src/VertexEdge.cpp.o"
   "CMakeFiles/ProjetoDA.dir/Code/src/VertexEdge.cpp.o.d"
-  "CMakeFiles/ProjetoDA.dir/main.cpp.o"
-  "CMakeFiles/ProjetoDA.dir/main.cpp.o.d"
+  "CMakeFiles/ProjetoDA.dir/Code/src/main.cpp.o"
+  "CMakeFiles/ProjetoDA.dir/Code/src/main.cpp.o.d"
   "ProjetoDA"
   "ProjetoDA.pdb"
 )
