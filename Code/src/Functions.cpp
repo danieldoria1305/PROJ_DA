@@ -2,6 +2,7 @@
 // Created by gonca on 05/04/2023.
 //
 
+using namespace std;
 
 #include "../include/Functions.h"
 LoadFiles lf2;
@@ -436,7 +437,10 @@ int maxNumReducedConnectivity (string staA,string staB, string staC, string staD
     }
 
     if (flag == 0){
-        cout << "The connection you want to remove does not exist";
+        cout << "╒════════════════════════════════════════════════════╕\n"
+                "│  The connection you want to remove does not exist  │\n"
+                "╘════════════════════════════════════════════════════╛\n"
+                "                                                      \n";
         return -1;
     }
 
@@ -516,14 +520,16 @@ void leastCostPathAndMaxFlow(string source, string dest) {
         }
     }
 
-    std::cout << "Least cost path from " << source << " to " << dest << " has cost " << cost << " and max flow " << flow << std::endl;
+    std::cout << "\nLeast cost path from " << source << " to " << dest << " has cost " << cost << " and max flow " << flow << std::endl;
 
     // Output the vertexes of the path
-    std::cout << "Path: ";
+    cout << "╒═════════════════════════════════════════════╕\n"
+            "│                     Path                    │\n";
     for (auto v : path) {
-        std::cout << v->getId() << " ";
+        cout << "╞═════════════════════════════════════════════╡\n";
+        cout << "    " << v->getId() << "\n";
     }
-    std::cout << std::endl;
+    cout << "╘═════════════════════════════════════════════╛\n" << endl;
 }
 
 void dijkstraShortestPath(Vertex* source, Vertex* dest) {
@@ -576,12 +582,18 @@ void report (string staA, string staB, string staC, string staD){
 
     for (auto a: net){
         if (a.getStationA()==staA && a.getStationB()==staB){
-            cout << "The flow between the removed stations is: " << a.getCapacity() << "\n";
+            cout << "\n╒═══════════════════════════════════════════════════════╕\n"
+                    "  The flow between the removed stations is: " << a.getCapacity() << "\n"
+                    "╘═══════════════════════════════════════════════════════╛\n"
+                    "                                                         \n";
         }
     }
 
-    cout << "The max flow between " << staC << " and " << staD << " was: " << first << ". After the cut of the connection"
-                                                                                      " between " << staA << " and " << staB << ", the max flow is now: " << first-second << "\n";
+    cout << "\n╒════════════════════════════════════════════════════════════════════════════════════════════╕\n"
+            "  The max flow between " << staC << " and " << staD << " was: " << first<<
+            ".\n  After the cut of the connection between " << staA << " and " << staB << ", the max flow is now: " << first-second << "\n"
+            "╘════════════════════════════════════════════════════════════════════════════════════════════╛\n"
+            "                                                                                       \n";
 
 }
 

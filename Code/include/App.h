@@ -13,11 +13,10 @@ public:
     bool printUserMenu();
     void printMaxTrainsBetweenTwoStations();
     void printStationsMostAmountTrains();
-    /*void printTopkMunicipalitiesDistricts();
-    void printMaxTrainsArriveSimul();
+    void printTopkMunicipalitiesDistricts();
     void printTrainsTravelMinimumCost();
     void printMaxTrainsReducedConnect();
-    void printPreferences();*/
+    void printReportStations();
 private:
     LoadFiles loadFiles;
     //set<string> stations_;
