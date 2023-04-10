@@ -235,6 +235,7 @@ void App::printTopkMunicipalitiesDistricts() {
             cout << "Invalid Operation..." << endl;
         }
     }
+    cin.ignore();
 }
 
 void App::printTrainsTravelMinimumCost() {
@@ -260,6 +261,7 @@ void App::printTrainsTravelMinimumCost() {
     getline(cin,destination);
     if(destination == "1") return;
     leastCostPathAndMaxFlow(source, destination);
+    cin.ignore();
 }
 
 void App::printMaxTrainsReducedConnect() {
@@ -308,14 +310,20 @@ void App::printMaxTrainsReducedConnect() {
     if(maxNumReducedConnectivity(staA, staB, staC, staD) == -1) {
         cout << "╒═══════════════════════════════════════════════════════╕\n"
                 "  The connection you want to remove does not exist.\n"
+                "╞═══════════════════════════════════════════════════════╡\n"
+                "│  Press enter to return                                │\n"
                 "╘═══════════════════════════════════════════════════════╛\n"
                 "                                                         \n";
+        cin.ignore();
     }
     else {
         cout << "╒═══════════════════════════════════════════════════════╕\n"
                 "  The max flow between Origin and Destination is: "<< maxNumReducedConnectivity(staA, staB, staC, staD) << "\n"
-             "╘═══════════════════════════════════════════════════════╛\n"
-             "                                                      \n";
+                "╞═══════════════════════════════════════════════════════╡\n"
+                "│  Press enter to return                                │\n"
+                "╘═══════════════════════════════════════════════════════╛\n"
+                "                                                         \n";
+        cin.ignore();
     }
 }
 
@@ -363,4 +371,5 @@ void App::printReportStations() {
     if(staD == "1") return;
 
     report(staA, staB, staC, staD);
+    cin.ignore();
 }

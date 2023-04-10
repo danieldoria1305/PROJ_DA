@@ -521,7 +521,10 @@ void leastCostPathAndMaxFlow(string source, string dest) {
         cout << "╞═════════════════════════════════════════════╡\n";
         cout << "    " << v->getId() << "\n";
     }
-    cout << "╘═════════════════════════════════════════════╛\n" << endl;
+    cout << "╞═════════════════════════════════════════════╡\n"
+            "│  Press enter to return                      │\n"
+            "╘═════════════════════════════════════════════╛\n"
+            "                                               \n";
 }
 
 void dijkstraShortestPath(Vertex* source, Vertex* dest) {
@@ -584,8 +587,9 @@ void report (string staA, string staB, string staC, string staD){
     cout << "\n╒════════════════════════════════════════════════════════════════════════════════════════════╕\n"
             "  The max flow between " << staC << " and " << staD << " was: " << first<<
             ".\n  After the cut of the connection between " << staA << " and " << staB << ", the max flow is now: " << first-second << "\n"
+            "╞════════════════════════════════════════════════════════════════════════════════════════════╡\n"
+            "│  Press enter to return                                                                     │\n"
             "╘════════════════════════════════════════════════════════════════════════════════════════════╛\n"
-            "                                                                                       \n";
-
+            "                                                                                                \n";
 }
 
