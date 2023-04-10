@@ -305,10 +305,18 @@ void App::printMaxTrainsReducedConnect() {
     getline(cin,staD);
     if(staD == "1") return;
 
-    cout << "╒═══════════════════════════════════════════════════════╕\n"
-            "  The max flow between Origin and Destination is: " << maxNumReducedConnectivity(staA, staB, staC, staD) << "\n"
-            "╘═══════════════════════════════════════════════════════╛\n"
-            "                                                      \n";
+    if(maxNumReducedConnectivity(staA, staB, staC, staD) == -1) {
+        cout << "╒═══════════════════════════════════════════════════════╕\n"
+                "  The connection you want to remove does not exist.\n"
+                "╘═══════════════════════════════════════════════════════╛\n"
+                "                                                         \n";
+    }
+    else {
+        cout << "╒═══════════════════════════════════════════════════════╕\n"
+                "  The max flow between Origin and Destination is: "<< maxNumReducedConnectivity(staA, staB, staC, staD) << "\n"
+             "╘═══════════════════════════════════════════════════════╛\n"
+             "                                                      \n";
+    }
 }
 
 void App::printReportStations() {

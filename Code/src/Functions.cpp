@@ -433,7 +433,6 @@ int maxNumReducedConnectivity (string staA,string staB, string staC, string staD
     }
 
     if (flag == 0){
-        cout <<"\n  The connection you want to remove does not exist.\n";
         return -1;
     }
 
