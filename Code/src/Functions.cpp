@@ -8,6 +8,13 @@ using namespace std;
 LoadFiles lf2;
 Graph g = lf2.getGraph();
 
+/**
+ * @complexity The time complexity of the testAndVisit function is O(1).
+ * @param q
+ * @param e
+ * @param w
+ * @param residual
+ */
 void testAndVisit(queue< Vertex*> &q, Edge *e, Vertex *w, double residual) {
     if (! w->isVisited() && residual > 0) {
         w->setVisited(true);
@@ -16,6 +23,11 @@ void testAndVisit(queue< Vertex*> &q, Edge *e, Vertex *w, double residual) {
     }
 }
 
+/**
+ * @complexity The time complexity of the edmondsKarp function is O(EV^2), where E is the number of edges in the graph and V is the number of vertices in the graph.
+ * @param source
+ * @param dest
+ */
 void edmondsKarp(string source, string dest) {
     Vertex* s = g.findVertex(source);
     Vertex* t = g.findVertex(dest);
@@ -36,6 +48,11 @@ void edmondsKarp(string source, string dest) {
 
 }
 
+/**
+ * @complexity The time complexity of the findAugmentingPath function is O(EV), where E is the number of edges in the graph and V is the number of vertices in the graph.
+ * @param source
+ * @param dest
+ */
 bool findAugmentingPath(Vertex *s, Vertex *t) {
     for(auto v : g.getVertexSet()) {
         v->setVisited(false);
@@ -55,7 +72,11 @@ bool findAugmentingPath(Vertex *s, Vertex *t) {
     }
     return t->isVisited();
 }
-
+/**
+ * @complexity The time complexity of the findMinResidualAlongPath function is O(P), where P is the number of edges in the path from vertex 's' to vertex 't'
+ * @param s
+ * @param t
+ */
 double findMinResidualAlongPath(Vertex *s, Vertex *t) {
     double f = INF;
     for (auto v = t; v != s; ) {
@@ -72,6 +93,12 @@ double findMinResidualAlongPath(Vertex *s, Vertex *t) {
     return f;
 }
 
+/**
+ * @complexity The time complexity of the augmentFlowAlongPath function is O(P), where P is the number of edges in the path from vertex s to vertex t.
+ * @param s
+ * @param t
+ * @param f
+ */
 void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
 
     for (auto v = t; v != s; ) {
@@ -88,6 +115,12 @@ void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
     }
 }
 
+/**
+ * Ths function returns the most amount trains that can travel between two stations (staA and staB)
+ * @complexity The overall time complexity of the maxNumTrainsTwoStations function is O(V^2 E).
+ * @param staA
+ * @param staB
+ */
 int maxNumTrainsTwoStations(string staA, string staB){
     edmondsKarp(staA, staB);
 
@@ -105,6 +138,10 @@ int maxNumTrainsTwoStations(string staA, string staB){
     return max;
 }
 
+/**
+ * This function returns a vector with the sequence of stations where the most amount of trains can be simultaneously
+ *  @complexity the total time complexity of the function is O(n^3 * (E + V*log(V))).
+ */
 vector<pair<string, string>> maxMAxFlow() {
 
     int max=0;
@@ -143,6 +180,11 @@ vector<pair<string, string>> maxMAxFlow() {
     return ret;
 }
 
+/**
+ * @complexity The time complexity of the function is O(E * V^2).
+ * @param staA
+ * @param staB
+ */
 int maxNumTrainsTwoStationsSameDistrict(string staA, string staB){
     edmondsKarpSameDistrict(staA, staB);
 
@@ -160,6 +202,11 @@ int maxNumTrainsTwoStationsSameDistrict(string staA, string staB){
     return max;
 }
 
+/**
+ * @complexity The time complexity of this function is O(E+V), where E is the number of edges and V is the number of vertices in the graph.
+ * @param s
+ * @param t
+ */
 bool findAugmentingPathSameDistrict(Vertex *s, Vertex *t) {
     vector<Station> stations = lf2.getStationVector();
 
@@ -223,6 +270,11 @@ bool findAugmentingPathSameDistrict(Vertex *s, Vertex *t) {
 
 }
 
+/**
+ * @complexity Therefore, the overall time complexity of edmondsKarpSameDistrict function is O(E * (E+V)), where E is the number of edges in the graph and V is the number of vertices in the graph.
+ * @param source
+ * @param dest
+ */
 void edmondsKarpSameDistrict(string source, string dest) {
     Vertex* s = g.findVertex(source);
     Vertex* t = g.findVertex(dest);
@@ -242,6 +294,12 @@ void edmondsKarpSameDistrict(string source, string dest) {
     }
 }
 
+/**
+ * This function returns a list with k elements. Each element represents a district and the number of trains in that district
+ * @complexity The time complexity of this function is O(n^3 log n), where n is the number of stations.
+ * @param s
+ * @param t
+*/
 vector <pair<string, int>> maxFlowDistrict(int k){
     lf2.readStations();
     vector <Station> stations = lf2.getStationVector();
@@ -288,6 +346,11 @@ vector <pair<string, int>> maxFlowDistrict(int k){
     return ret;
 }
 
+/**
+ * This function returns a list with k elements. Each element represents a Municipality and the number of trains in that municipality
+ * @complexity The time complexity of this function is O(n^3 log n), where n is the number of stations.
+ * @param k
+ */
 vector <pair<string, int>> maxFlowMunicipality(int k){
     lf2.readStations();
     vector <Station> stations = lf2.getStationVector();
@@ -344,6 +407,11 @@ vector <pair<string, int>> maxFlowMunicipality(int k){
     return retorno;
 }
 
+/**
+ * @complexity The time complexity of the function is O(EV^2), where E is the number of edges in the graph and V is the number of vertices in the graph.
+ * @param source
+ * @param dest
+ */
 void edmondsKarpSameMunicipality(string source, string dest) {
     Vertex* s = g.findVertex(source);
     Vertex* t = g.findVertex(dest);
@@ -361,9 +429,13 @@ void edmondsKarpSameMunicipality(string source, string dest) {
         double f = findMinResidualAlongPath(s, t);
         augmentFlowAlongPath(s, t, f);
     }
-
 }
 
+/**
+ * @complexity
+ * @param s
+ * @param t
+ */
 bool findAugmentingPathSameMunicipality(Vertex *s, Vertex *t) {
     vector <Station> stations = lf2.getStationVector();
 
@@ -406,7 +478,7 @@ bool findAugmentingPathSameMunicipality(Vertex *s, Vertex *t) {
     }
     return t->isVisited();}
 
-int maxNumTrainsTwoStationsSameMunicipality(string staA, string staB) {
+    int maxNumTrainsTwoStationsSameMunicipality(string staA, string staB) {
     edmondsKarpSameMunicipality(staA, staB);
 
     vector<Vertex*> vert = g.getVertexSet();
@@ -423,6 +495,15 @@ int maxNumTrainsTwoStationsSameMunicipality(string staA, string staB) {
     return max;
 }
 
+/**
+ * After cutting the connection between two vertexes (staA and staB), the function returns the max flow between two
+ * stations (staC and staD)
+ * @complextiy
+ * @param staA
+ * @param staB
+ * @param staC
+ * @param staD
+ */
 int maxNumReducedConnectivity (string staA,string staB, string staC, string staD){
     lf2.readNetwork();
     vector <Vertex*> test = g.getVertexSet();
@@ -487,6 +568,12 @@ int maxNumReducedConnectivity (string staA,string staB, string staC, string staD
     }
 }
 
+/**
+ * @complexity The function has a time complexity of O(E^2 * V^2) in the worst case
+ * @param staA
+ * @param staB
+ * @param vert
+ */
 int maxNumTrainsTwoStationsReduced(string staA, string staB, vector<Vertex*> vert){
     edmondsKarp(staA, staB);
 
@@ -502,6 +589,13 @@ int maxNumTrainsTwoStationsReduced(string staA, string staB, vector<Vertex*> ver
     return max;
 }
 
+/**
+ * The function returns the minimum cost trip we can make between two stations (staA and staB) and its
+ * max flow. The max flow we can send from one station to another with the minimum cost.
+ * @complexity
+ * @param source
+ * @param dest
+ */
 void leastCostPathAndMaxFlow(string source, string dest) {
     Vertex* s = g.findVertex(source);
     Vertex* t = g.findVertex(dest);
@@ -560,6 +654,11 @@ void leastCostPathAndMaxFlow(string source, string dest) {
     cout << "╘═════════════════════════════════════════════╛\n" << endl;
 }
 
+/**
+ * @complexity In this function, the time complexity is also O((E+V)logV)
+ * @param source
+ * @param dest
+ */
 void dijkstraShortestPath(Vertex* source, Vertex* dest) {
     for (auto v : g.getVertexSet()) {
         v->setVisited(false);
@@ -599,6 +698,15 @@ void dijkstraShortestPath(Vertex* source, Vertex* dest) {
     }
 }
 
+/**
+ * * After removing the connections between two stations, we evaluate the max flow we can send from one station to another
+ * and this function returns that evaluation.
+ * @complexity
+ * @param staA
+ * @param staB
+ * @param staC
+ * @param staD
+ */
 void report (string staA, string staB, string staC, string staD){
     int first = maxNumTrainsTwoStations(staC, staD);
 
