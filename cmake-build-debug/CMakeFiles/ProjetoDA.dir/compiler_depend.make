@@ -191,16 +191,7 @@ CMakeFiles/ProjetoDA.dir/Code/src/App.cpp.obj: C:/Users/gonca/Desktop/faculdade/
   C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc \
   C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/VertexEdge.h \
-  C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/Functions.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ctime \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.tcc \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_conv.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt
+  C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/Functions.h
 
 CMakeFiles/ProjetoDA.dir/Code/src/Functions.cpp.obj: C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/src/Functions.cpp \
   C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/Functions.h \
@@ -773,9 +764,7 @@ CMakeFiles/ProjetoDA.dir/Code/src/LoadFiles.cpp.obj: C:/Users/gonca/Desktop/facu
   C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc \
-  C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/VertexEdge.h \
-  C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/VertexEdge.h \
-  C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/Graph.h
+  C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/VertexEdge.h
 
 CMakeFiles/ProjetoDA.dir/Code/src/Network.cpp.obj: C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/src/Network.cpp \
   C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/Network.h \
@@ -1712,8 +1701,6 @@ C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32
 
 C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h:
 
-C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ctime:
-
 C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/Station.h:
 
 C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/Network.h:
@@ -1751,22 +1738,6 @@ C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32
 C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/VertexEdge.h:
 
 C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/include/Functions.h:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.h:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.tcc:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_conv.h:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h:
-
-C:/Program\ Files/JetBrains/CLion\ 2022.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt:
 
 C:/Users/gonca/Desktop/faculdade/2\ ano\ 2\ semestre/DA/trabalho\ 1/ProjetoDA/Code/src/Functions.cpp:
 
