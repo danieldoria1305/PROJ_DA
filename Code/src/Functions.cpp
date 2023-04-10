@@ -8,7 +8,7 @@ using namespace std;
 LoadFiles lf2;
 Graph g = lf2.getGraph();
 
-void testAndVisit(std::queue< Vertex*> &q, Edge *e, Vertex *w, double residual) {
+void testAndVisit(queue< Vertex*> &q, Edge *e, Vertex *w, double residual) {
     if (! w->isVisited() && residual > 0) {
         w->setVisited(true);
         w->setPath(e);
@@ -20,7 +20,7 @@ void edmondsKarp(string source, string dest) {
     Vertex* s = g.findVertex(source);
     Vertex* t = g.findVertex(dest);
     if (s == nullptr || t == nullptr || s == t)
-        throw std::logic_error("Invalid source and/or target vertex");
+        throw logic_error("Invalid source and/or target vertex");
 
     // Reset the flows
     for (auto v : g.getVertexSet()) {
@@ -33,6 +33,7 @@ void edmondsKarp(string source, string dest) {
         double f = findMinResidualAlongPath(s, t);
         augmentFlowAlongPath(s, t, f);
     }
+
 }
 
 bool findAugmentingPath(Vertex *s, Vertex *t) {
@@ -40,7 +41,7 @@ bool findAugmentingPath(Vertex *s, Vertex *t) {
         v->setVisited(false);
     }
     s->setVisited(true);
-    std::queue<Vertex *> q;
+    queue<Vertex *> q;
     q.push(s);
     while( ! q.empty() && ! t->isVisited()) {
         auto v = q.front();
@@ -60,7 +61,7 @@ double findMinResidualAlongPath(Vertex *s, Vertex *t) {
     for (auto v = t; v != s; ) {
         auto e = v->getPath();
         if (e->getDest() == v) {
-            f = std::min(f, e->getCapacity() - e->getFlow());
+            f = min(f, e->getCapacity() - e->getFlow());
             v = e->getOrig();
         }
         else {
@@ -226,7 +227,7 @@ void edmondsKarpSameDistrict(string source, string dest) {
     Vertex* s = g.findVertex(source);
     Vertex* t = g.findVertex(dest);
     if (s == nullptr || t == nullptr || s == t)
-        throw std::logic_error("Invalid source and/or target vertex");
+        throw logic_error("Invalid source and/or target vertex");
 
     // Reset the flows
     for (auto v : g.getVertexSet()) {
@@ -347,7 +348,7 @@ void edmondsKarpSameMunicipality(string source, string dest) {
     Vertex* s = g.findVertex(source);
     Vertex* t = g.findVertex(dest);
     if (s == nullptr || t == nullptr || s == t)
-        throw std::logic_error("Invalid source and/or target vertex");
+        throw logic_error("Invalid source and/or target vertex");
 
     // Reset the flows
     for (auto v : g.getVertexSet()) {
@@ -380,7 +381,7 @@ bool findAugmentingPathSameMunicipality(Vertex *s, Vertex *t) {
     }
     s->setVisited(true);
 
-    std::queue<Vertex*> q;
+    queue<Vertex*> q;
     q.push(s);
 
     while (!q.empty() && !t->isVisited()) {
@@ -445,16 +446,43 @@ int maxNumReducedConnectivity (string staA,string staB, string staC, string staD
     }
 
     else {
+        Vertex *ve1, *ve2, *ve3, *ve4;
+        string aux1, aux2, aux3, aux4, aux5, aux6;
+        int fak1, fak2;
         for (auto a: test) {
             if (a->getId() == staA) {
+                for (auto v:a->getAdj()){
+                    if (v->getDest()->getId()==staB){
+                        ve1=v->getDest();
+                        ve2=v->getOrig();
+                        aux1=v->getService();
+                        fak1=v->getCapacity();
+                    }
+                }
                 a->removeEdge(g.findVertex(a->getId()), g.findVertex(staB));
             }
             if (a->getId() == staB) {
+                for (auto b:a->getAdj()){
+                    if (b->getDest()->getId()==staB){
+                        ve3=b->getDest();
+                        ve4=b->getOrig();
+                        aux2=b->getService();
+                        fak2=b->getCapacity();
+                    }
+                }
                 a->removeEdge(g.findVertex(a->getId()), g.findVertex(staA));
             }
         }
 
         int ret = maxNumTrainsTwoStationsReduced(staC, staD, test);
+        for (auto c:test){
+            if (c->getId()==staA){
+                c->addEdge(ve2, ve1, fak1, aux1);
+            }
+            if (c->getId()==staB){
+                c->addEdge(ve4, ve3, fak2, aux2);
+            }
+        }
         return ret;
     }
 }
@@ -479,7 +507,7 @@ void leastCostPathAndMaxFlow(string source, string dest) {
     Vertex* t = g.findVertex(dest);
 
     if (s == nullptr || t == nullptr || s == t)
-        throw std::logic_error("Invalid source and/or target vertex");
+        throw logic_error("Invalid source and/or target vertex");
 
     dijkstraShortestPath(s,t);
 
@@ -493,12 +521,12 @@ void leastCostPathAndMaxFlow(string source, string dest) {
         auto e = v->getPath();
         if (e->getDest() == v) {
             cost += e->getServiceCost();
-            flow = std::min(flow, e->getCapacity() - e->getFlow());
+            flow = min(flow, e->getCapacity() - e->getFlow());
             v = e->getOrig();
         }
         else {
             cost += e->getServiceCost();
-            flow = std::min(flow, e->getFlow());
+            flow = min(flow, e->getFlow());
             v = e->getDest();
         }
     }
@@ -520,7 +548,7 @@ void leastCostPathAndMaxFlow(string source, string dest) {
         }
     }
 
-    std::cout << "\nLeast cost path from " << source << " to " << dest << " has cost " << cost << " and max flow " << flow << std::endl;
+    cout << "\nLeast cost path from " << source << " to " << dest << " has cost " << cost << " and max flow " << flow << endl;
 
     // Output the vertexes of the path
     cout << "╒═════════════════════════════════════════════╕\n"
@@ -540,7 +568,7 @@ void dijkstraShortestPath(Vertex* source, Vertex* dest) {
 
     source->setDist(0);
 
-    std::priority_queue<std::pair<double, Vertex*>, std::vector<std::pair<double, Vertex*>>, std::greater<std::pair<double, Vertex*>>> pq;
+    priority_queue<pair<double, Vertex*>, vector<pair<double, Vertex*>>, greater<pair<double, Vertex*>>> pq;
 
     pq.push({ 0.0, source });
 
